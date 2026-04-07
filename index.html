@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WRLZ Webdesign — Premium Websites & Landingpages für Startups & D2C-Brands</title>
-  <meta name="description" content="Wir bauen nicht nur Webseiten — wir erschaffen digitale Erlebnisse. Premium Webdesign für Startups, Scale-ups und D2C-Brands. Futuristisch, interaktiv, performant.">
+  <title>WRLZ Webdesign: Premium Websites &amp; Landingpages für Startups &amp; D2C-Brands</title>
+  <meta name="description" content="Wir bauen digitale Erlebnisse. Premium Webdesign für Startups, Scale-ups und D2C-Brands. Futuristisch, interaktiv, performant.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://webdesign.wrlz.ai/">
   <link rel="icon" href="assets/favicon.png" type="image/png">
@@ -12,8 +12,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="WRLZ Webdesign — Premium Websites & Landingpages">
-  <meta property="og:description" content="Wir bauen nicht nur Webseiten — wir erschaffen digitale Erlebnisse. Premium Webdesign für Startups, Scale-ups und D2C-Brands.">
+  <meta property="og:title" content="WRLZ Webdesign: Premium Websites &amp; Landingpages">
+  <meta property="og:description" content="Wir bauen digitale Erlebnisse. Premium Webdesign für Startups, Scale-ups und D2C-Brands.">
   <meta property="og:locale" content="de_DE">
 
   <!-- Fonts -->
@@ -21,25 +21,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Three.js Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.168.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.168.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
 
   <!-- ============ LOADER ============ -->
-  <div class="loader" aria-hidden="true">
+  <div class="loader" id="loader" aria-hidden="true">
     <img src="assets/logo.svg" alt="" class="loader-logo">
-    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="loader-bar"><div class="loader-bar-fill" id="loader-fill"></div></div>
+    <span class="loader-percent" id="loader-percent">0%</span>
   </div>
 
+  <!-- ============ CUSTOM CURSOR (desktop) ============ -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
   <!-- ============ NAVIGATION ============ -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#hero">
+      <a href="#hero" class="nav-logo-link">
         <img src="assets/logo.svg" alt="WRLZ" class="nav-logo">
       </a>
 
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#philosophie">Philosophie</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#services">Services</a></li>
@@ -47,15 +65,16 @@
         <li><a href="#kontakt" class="nav-cta">Projekt starten</a></li>
       </ul>
 
-      <button class="nav-toggle" aria-label="Menu">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ============ HERO — Flying Monitors ============ -->
-  <section class="hero section" id="hero">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
     <canvas id="hero-canvas"></canvas>
+    <div class="hero-gradient-orb"></div>
 
     <div class="hero-content">
       <div class="hero-label">
@@ -64,21 +83,19 @@
       </div>
 
       <h1 class="heading-xl">
-        <span class="line">Wir bauen nicht</span>
-        <span class="line">nur Webseiten.</span>
-        <span class="line">Wir erschaffen <span class="accent-word">digitale Erlebnisse.</span></span>
+        <span class="line"><span class="line-inner">Wir bauen</span></span>
+        <span class="line"><span class="line-inner"><span class="accent-word">digitale</span></span></span>
+        <span class="line"><span class="line-inner"><span class="accent-word">Erlebnisse.</span></span></span>
       </h1>
 
-      <p class="hero-sub">Premium Websites & Landingpages für Startups, Scale-ups und D2C-Brands — futuristisch, interaktiv, performant.</p>
+      <p class="hero-sub">Premium Websites &amp; Landingpages für Startups, Scale-ups und D2C-Brands. Futuristisch, interaktiv, performant.</p>
 
       <div class="hero-cta-group">
         <a href="#kontakt" class="btn-primary">
-          Projekt starten
+          <span>Projekt starten</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#portfolio" class="btn-secondary">
-          Portfolio ansehen
-        </a>
+        <a href="#portfolio" class="btn-secondary">Portfolio ansehen</a>
       </div>
     </div>
 
@@ -88,78 +105,126 @@
     </div>
   </section>
 
-  <!-- ============ PHILOSOPHIE & ZIELGRUPPE ============ -->
+  <!-- ============ PHILOSOPHIE ============ -->
   <section class="philosophy section" id="philosophie">
     <div class="container philosophy-grid">
       <div class="philosophy-left">
-        <span class="label section-label">Unsere Philosophie</span>
+        <span class="label">Unsere Philosophie</span>
         <h2 class="heading-lg">Keine starre<br>Corporate-Welt.<br><span class="text-accent">Agile Brands only.</span></h2>
-        <p>Wir arbeiten ausschliesslich mit ambitionierten Startups, Scale-ups und D2C-Brands, die verstehen, dass eine Website kein Beiwerk ist — sondern das Herzstück ihres digitalen Auftritts. Keine Meetings-Marathons. Keine Wasserfall-Prozesse. Schnell, iterativ, Awwwards-Level.</p>
+        <p>Wir arbeiten ausschliesslich mit ambitionierten Startups, Scale-ups und D2C-Brands, die verstehen, dass eine Website kein Beiwerk ist, sondern das Herzstück ihres digitalen Auftritts. Keine Meetings-Marathons. Keine Wasserfall-Prozesse. Schnell, iterativ, Awwwards-Level.</p>
       </div>
 
       <div class="philosophy-cards">
-        <div class="philo-card">
-          <div class="card-icon">⚡</div>
+        <div class="philo-card reveal-item">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <h4>Speed-First Delivery</h4>
           <p>MVP-Landingpage in 5 Tagen. Full Website in 2-3 Wochen. Wir bewegen uns in Startup-Geschwindigkeit, nicht im Agentur-Schneckentempo.</p>
         </div>
-        <div class="philo-card">
-          <div class="card-icon">🎨</div>
+        <div class="philo-card reveal-item">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
           <h4>Design, das konvertiert</h4>
           <p>Jedes Pixel hat einen Zweck. Wir verbinden Award-Level Ästhetik mit messbar hohen Conversion-Rates. Beauty meets Business.</p>
         </div>
-        <div class="philo-card">
-          <div class="card-icon">🤖</div>
+        <div class="philo-card reveal-item">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8l3 3-3 3"/><line x1="13" y1="14" x2="17" y2="14"/></svg></div>
           <h4>KI-gestützter Workflow</h4>
-          <p>Von der Copy bis zum Code — unsere KI-Pipelines beschleunigen jeden Schritt. Das Ergebnis: bessere Qualität, weniger Kosten, schnellere Delivery.</p>
+          <p>Von der Copy bis zum Code: unsere KI-Pipelines beschleunigen jeden Schritt. Das Ergebnis: bessere Qualität, weniger Kosten, schnellere Delivery.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ PORTFOLIO GALLERY — Mockup Universe ============ -->
+  <!-- ============ PORTFOLIO — Horizontal Scroll Gallery ============ -->
   <section class="portfolio section" id="portfolio">
-    <div class="container portfolio-header">
-      <span class="label">Portfolio</span>
-      <h2 class="heading-lg">Unsere Arbeiten<br><span class="text-accent">sprechen lauter.</span></h2>
-      <p>Echte Kundenprojekte und Concept-Designs — von uns designed und umgesetzt.</p>
-    </div>
-
-    <!-- Row 1: 5 echte Referenzen + 1 interaktiver Mockup -->
-    <div class="marquee-row">
-      <div class="marquee-track">
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">spe-cosmetics.com</div></div><img src="assets/portfolio/spe-cosmetics.png" alt="SPE Cosmetics" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>SPE Cosmetics</h4><span>Corporate · Produktkatalog</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">levaco.de</div></div><img src="assets/portfolio/levaco.png" alt="LEVACO Chemicals" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>LEVACO Chemicals</h4><span>Corporate · B2B-Industrie</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">matchachin.de</div></div><img src="assets/portfolio/matchachin.png" alt="Matchachin" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Matchachin</h4><span>E-Commerce · D2C Brand</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">tausendkraut.de</div></div><img src="assets/portfolio/tausendkraut.png" alt="Tausendkraut" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Tausendkraut</h4><span>E-Commerce · Bio-Manufaktur</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">wrlz.ai</div></div><img src="assets/portfolio/wrlz-ai.png" alt="WRLZ.AI" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>WRLZ.AI</h4><span>KI-Automation · Eigenprojekt</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">neurofit.app</div></div><iframe src="mockups/neurofit.html" loading="lazy"></iframe><div class="portfolio-overlay"><h4>NeuroFit — Health App</h4><span>Landingpage · Conversion-optimiert</span></div></div>
-        <!-- Duplicates for seamless loop -->
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">spe-cosmetics.com</div></div><img src="assets/portfolio/spe-cosmetics.png" alt="SPE Cosmetics" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>SPE Cosmetics</h4><span>Corporate · Produktkatalog</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">levaco.de</div></div><img src="assets/portfolio/levaco.png" alt="LEVACO Chemicals" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>LEVACO Chemicals</h4><span>Corporate · B2B-Industrie</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">matchachin.de</div></div><img src="assets/portfolio/matchachin.png" alt="Matchachin" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Matchachin</h4><span>E-Commerce · D2C Brand</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">tausendkraut.de</div></div><img src="assets/portfolio/tausendkraut.png" alt="Tausendkraut" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Tausendkraut</h4><span>E-Commerce · Bio-Manufaktur</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">wrlz.ai</div></div><img src="assets/portfolio/wrlz-ai.png" alt="WRLZ.AI" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>WRLZ.AI</h4><span>KI-Automation · Eigenprojekt</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">neurofit.app</div></div><iframe src="mockups/neurofit.html" loading="lazy"></iframe><div class="portfolio-overlay"><h4>NeuroFit — Health App</h4><span>Landingpage · Conversion-optimiert</span></div></div>
+    <div class="container">
+      <div class="portfolio-header">
+        <span class="label">Portfolio</span>
+        <h2 class="heading-lg">Unsere Arbeiten<br><span class="text-accent">sprechen lauter.</span></h2>
+        <p>Echte Kundenprojekte, von uns designed und umgesetzt.</p>
       </div>
-    </div>
 
-    <!-- Row 2 (reverse): 4 echte Referenzen + 2 interaktive Mockups -->
-    <div class="marquee-row">
-      <div class="marquee-track reverse">
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">comvendo.de</div></div><img src="assets/portfolio/comvendo.png" alt="comvendo" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>comvendo GmbH</h4><span>Corporate · Kommunikation</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">heycloud365.de</div></div><img src="assets/portfolio/heycloud365.png" alt="HeyCloud365" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>HeyCloud365</h4><span>SaaS · Cloud-Dienste</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">kyowa.eu</div></div><img src="assets/portfolio/kyowa.png" alt="Kyowa" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Kyowa</h4><span>Corporate · B2B Science</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">pascaljaeger.de</div></div><img src="assets/portfolio/pascal-jaeger.png" alt="Pascal Jäger" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Pascal Jäger</h4><span>Portfolio · UX Design</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">app.dataflow.io</div></div><iframe src="mockups/dataflow.html" loading="lazy"></iframe><div class="portfolio-overlay"><h4>DataFlow — Analytics SaaS</h4><span>Dashboard · Full Stack</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">greenleaf.bio</div></div><iframe src="mockups/greenleaf.html" loading="lazy"></iframe><div class="portfolio-overlay"><h4>GreenLeaf — Organic D2C</h4><span>Landingpage · Branding</span></div></div>
-        <!-- Duplicates for seamless loop -->
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">comvendo.de</div></div><img src="assets/portfolio/comvendo.png" alt="comvendo" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>comvendo GmbH</h4><span>Corporate · Kommunikation</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">heycloud365.de</div></div><img src="assets/portfolio/heycloud365.png" alt="HeyCloud365" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>HeyCloud365</h4><span>SaaS · Cloud-Dienste</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">kyowa.eu</div></div><img src="assets/portfolio/kyowa.png" alt="Kyowa" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Kyowa</h4><span>Corporate · B2B Science</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">pascaljaeger.de</div></div><img src="assets/portfolio/pascal-jaeger.png" alt="Pascal Jäger" class="portfolio-screenshot" loading="lazy"><div class="portfolio-overlay"><h4>Pascal Jäger</h4><span>Portfolio · UX Design</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">app.dataflow.io</div></div><iframe src="mockups/dataflow.html" loading="lazy"></iframe><div class="portfolio-overlay"><h4>DataFlow — Analytics SaaS</h4><span>Dashboard · Full Stack</span></div></div>
-        <div class="portfolio-item"><div class="browser-frame"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">greenleaf.bio</div></div><iframe src="mockups/greenleaf.html" loading="lazy"></iframe><div class="portfolio-overlay"><h4>GreenLeaf — Organic D2C</h4><span>Landingpage · Branding</span></div></div>
+      <div class="portfolio-grid">
+
+        <article class="pf-item pf-large">
+          <div class="pf-image">
+            <img src="assets/portfolio/wrlz-ai.png" alt="WRLZ.AI" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">KI-Automation · Eigenprojekt</span>
+            <h3>WRLZ.AI</h3>
+          </div>
+        </article>
+
+        <article class="pf-item">
+          <div class="pf-image">
+            <img src="assets/portfolio/tausendkraut.png" alt="Tausendkraut" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">E-Commerce · Bio-Manufaktur</span>
+            <h3>Tausendkraut</h3>
+          </div>
+        </article>
+
+        <article class="pf-item">
+          <div class="pf-image">
+            <img src="assets/portfolio/matchachin.png" alt="Matchachin" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">E-Commerce · D2C Brand</span>
+            <h3>Matchachin</h3>
+          </div>
+        </article>
+
+        <article class="pf-item pf-large">
+          <div class="pf-image">
+            <img src="assets/portfolio/levaco.png" alt="LEVACO Chemicals" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">Corporate · B2B-Industrie</span>
+            <h3>LEVACO Chemicals</h3>
+          </div>
+        </article>
+
+        <article class="pf-item">
+          <div class="pf-image">
+            <img src="assets/portfolio/hefe-van-haag.png" alt="Hefe van Haag" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">Corporate · Großhandel</span>
+            <h3>Hefe van Haag</h3>
+          </div>
+        </article>
+
+        <article class="pf-item">
+          <div class="pf-image">
+            <img src="assets/portfolio/nachi-europe.png" alt="NACHI Europe" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">Corporate · B2B-Industrie</span>
+            <h3>NACHI Europe</h3>
+          </div>
+        </article>
+
+        <article class="pf-item">
+          <div class="pf-image">
+            <img src="assets/portfolio/kyowa.png" alt="Kyowa" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">Corporate · B2B Science</span>
+            <h3>Kyowa</h3>
+          </div>
+        </article>
+
+        <article class="pf-item">
+          <div class="pf-image">
+            <img src="assets/portfolio/pascal-jaeger.png" alt="Pascal Jäger" loading="lazy">
+          </div>
+          <div class="pf-info">
+            <span class="pf-cat">Portfolio · UX Design</span>
+            <h3>Pascal Jäger</h3>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -170,15 +235,15 @@
       <div class="services-header">
         <span class="label">Services</span>
         <h2 class="heading-lg">Was wir <span class="text-accent">bauen.</span></h2>
-        <p>Von der schnellen Landingpage bis zum komplexen E-Commerce-Setup — immer auf Awwwards-Level.</p>
+        <p>Von der schnellen Landingpage bis zum komplexen E-Commerce-Setup. Immer auf Awwwards-Level.</p>
       </div>
 
       <div class="bento-grid">
-        <!-- Card 1: Large -->
-        <div class="bento-card large">
-          <div class="bento-icon">🚀</div>
+        <div class="bento-card large" data-magnetic>
+          <div class="bento-glow"></div>
+          <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <h3>High-Conversion Landingpages</h3>
-          <p>Schnelle, scroll-animierte Seiten, die Besucher in Kunden verwandeln. Perfekt für Launches, Fundraising oder Lead-Generierung. GSAP-Animationen, 3D-Elemente und eine UX, die konvertiert.</p>
+          <p>Schnelle, scroll-animierte Seiten, die Besucher in Kunden verwandeln. Perfekt für Launches, Fundraising oder Lead-Generierung.</p>
           <div class="bento-tags">
             <span class="bento-tag">Scroll-Animationen</span>
             <span class="bento-tag">A/B-Testing</span>
@@ -187,11 +252,11 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="bento-card">
-          <div class="bento-icon">🛒</div>
+        <div class="bento-card" data-magnetic>
+          <div class="bento-glow"></div>
+          <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
           <h3>D2C E-Commerce</h3>
-          <p>Shopify-, WooCommerce- oder Custom-Shops mit Brand-Identity. Von der Produktseite bis zum Checkout — jedes Detail durchdacht.</p>
+          <p>Shopify-, WooCommerce- oder Custom-Shops mit Brand-Identity. Von der Produktseite bis zum Checkout. Jedes Detail durchdacht.</p>
           <div class="bento-tags">
             <span class="bento-tag">Shopify</span>
             <span class="bento-tag">Custom Theme</span>
@@ -199,9 +264,9 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="bento-card">
-          <div class="bento-icon">🌐</div>
+        <div class="bento-card" data-magnetic>
+          <div class="bento-glow"></div>
+          <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <h3>Full Websites</h3>
           <p>Multi-Page-Experiences mit Scrollytelling, Video-Integration und interaktiven Elementen. Für Brands, die einen bleibenden Eindruck hinterlassen wollen.</p>
           <div class="bento-tags">
@@ -211,9 +276,9 @@
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="bento-card">
-          <div class="bento-icon">📱</div>
+        <div class="bento-card" data-magnetic>
+          <div class="bento-glow"></div>
+          <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h3>Web Apps & Dashboards</h3>
           <p>React/Next.js-basierte Interfaces für SaaS-Produkte und interne Tools. Clean, schnell und skalierbar.</p>
           <div class="bento-tags">
@@ -222,11 +287,11 @@
           </div>
         </div>
 
-        <!-- Card 5: Large -->
-        <div class="bento-card large">
-          <div class="bento-icon">✨</div>
+        <div class="bento-card large" data-magnetic>
+          <div class="bento-glow"></div>
+          <div class="bento-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <h3>Brand Identity & Motion Design</h3>
-          <p>Logo-Systeme, Farbpaletten, Typografie und animierte Assets, die deine Marke unverwechselbar machen. Wir liefern ein komplettes Design-System — nicht nur eine hübsche Website.</p>
+          <p>Logo-Systeme, Farbpaletten, Typografie und animierte Assets, die deine Marke unverwechselbar machen. Wir liefern ein komplettes Design-System.</p>
           <div class="bento-tags">
             <span class="bento-tag">Logo & CI</span>
             <span class="bento-tag">Design System</span>
@@ -262,25 +327,46 @@
     </div>
   </div>
 
-  <!-- ============ KI-AUTOMATION EDGE ============ -->
+  <!-- ============ DIRECT CONTACT ============ -->
+  <section class="direct-contact section" id="direct-contact">
+    <div class="container contact-card-grid">
+      <div class="contact-card-content">
+        <span class="label">Direkter Draht</span>
+        <h2 class="heading-lg">Kein Kontaktformular.<br><span class="text-accent">Ruf einfach an.</span></h2>
+        <p class="contact-card-text">Keine Warteschleifen. Du erreichst mich direkt, für ein unverbindliches Erstgespräch oder wenn du eine schnelle Einschätzung brauchst.</p>
+        <div class="contact-actions">
+          <a href="tel:+49" class="btn-primary contact-phone" data-hover>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Jetzt anrufen
+          </a>
+          <a href="mailto:pascal@wrlz.ai" class="btn-outline contact-mail" data-hover>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            pascal@wrlz.ai
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KI-EDGE ============ -->
   <section class="ki-edge section" id="ki-edge">
     <div class="container ki-edge-grid">
       <div class="ki-edge-visual">
         <div class="code-strand">
-          <div class="code-line">const ai = new WRLZ.Agent();</div>
-          <div class="code-line">await ai.generateCopy(brand);</div>
-          <div class="code-line">const design = ai.optimize(ux);</div>
-          <div class="code-line">pipeline.deploy(design);</div>
-          <div class="code-line">// conversion +340%</div>
-          <div class="code-line">return results.epic;</div>
+          <div class="code-line" data-text="const ai = new WRLZ.Agent();"></div>
+          <div class="code-line" data-text="await ai.generateCopy(brand);"></div>
+          <div class="code-line" data-text="const design = ai.optimize(ux);"></div>
+          <div class="code-line" data-text="pipeline.deploy(design);"></div>
+          <div class="code-line" data-text="// conversion +340%"></div>
+          <div class="code-line" data-text="return results.epic;"></div>
         </div>
       </div>
 
       <div class="ki-edge-content">
         <span class="label">Der WRLZ Edge</span>
         <h2 class="heading-lg">Webdesign trifft<br><span class="text-neon">KI-Automation.</span></h2>
-        <p>Wir kommen aus der Welt der KI-Automation — und bringen dieses Wissen in jedes Webdesign-Projekt mit. Das Ergebnis: Websites, die nicht nur gut aussehen, sondern intelligent arbeiten.</p>
-        <p>Powered by <a href="https://wrlz.ai" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">wrlz.ai</a></p>
+        <p>Wir kommen aus der Welt der KI-Automation und bringen dieses Wissen in jedes Webdesign-Projekt mit. Das Ergebnis: Websites, die nicht nur gut aussehen, sondern intelligent arbeiten.</p>
+        <p>Powered by <a href="https://wrlz.ai" target="_blank" rel="noopener" class="ki-link">wrlz.ai</a></p>
 
         <ul class="ki-features">
           <li>KI-generierte Copy, die konvertiert</li>
@@ -293,22 +379,32 @@
     </div>
   </section>
 
-  <!-- ============ EPIC FOOTER & CTA ============ -->
+  <!-- ============ FOOTER & CTA ============ -->
   <footer class="footer-curtain" id="kontakt">
-    <div class="container" style="position:relative; z-index:2;">
+    <div class="container footer-content">
       <div class="footer-big-text">
-        <span>Ready for the</span>
-        <span class="accent-line">next level?</span>
+        <span class="fbt-line">Ready for the</span>
+        <span class="fbt-line accent-line">next level?</span>
       </div>
 
-      <div class="contact-chat" id="chat-container">
-        <!-- JS renders the chat-style form here -->
+      <div class="contact-chat" id="chat-container"></div>
+
+      <div class="chat-quick-contact">
+        <span>Oder direkt:</span>
+        <a href="https://calendly.com/pasco1280/30min" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Termin buchen
+        </a>
+        <a href="mailto:pascal@wrlz.ai">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          pascal@wrlz.ai
+        </a>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <p>&copy; 2026 WRLZ.AI — Alle Rechte vorbehalten.</p>
+        <p>&copy; 2026 WRLZ.AI. Alle Rechte vorbehalten.</p>
         <ul class="footer-links">
           <li><a href="https://wrlz.ai" target="_blank" rel="noopener">wrlz.ai</a></li>
           <li><a href="impressum.html">Impressum</a></li>
@@ -319,15 +415,16 @@
   </footer>
 
   <!-- ============ SCRIPTS ============ -->
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <!-- GSAP + Plugins -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-  <!-- App -->
-  <script src="js/hero3d.js"></script>
+  <!-- App (after GSAP + Lenis) -->
   <script src="js/app.js"></script>
+  <!-- Hero 3D (ES Module) -->
+  <script type="module" src="js/hero3d.js"></script>
 
 </body>
 </html>
