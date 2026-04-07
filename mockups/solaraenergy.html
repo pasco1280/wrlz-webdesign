@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#fffdf5;color:#1a1a0a;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;background:#fff;border-bottom:1px solid #f0e8c8}
+  .nav-brand{font-weight:800;font-size:1.15rem;color:#b45309}
+  .nav-brand span{color:#d97706}
+  .nav-links{display:flex;gap:20px;font-size:.7rem;color:#78716c}
+  .btn-y{padding:8px 18px;background:#d97706;color:#fff;border-radius:100px;font-size:.7rem;font-weight:700}
+  .hero{padding:60px 32px 40px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#fffbeb,#fffdf5)}
+  .hero h1{font-size:2.6rem;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;color:#1c1917}
+  .hero h1 span{color:#d97706}
+  .hero p{color:#78716c;font-size:.85rem;line-height:1.7;margin-bottom:22px}
+  .hero-btns{display:flex;gap:12px}
+  .btn-yl{background:#d97706;color:#fff;padding:13px 28px;border-radius:100px;font-size:.82rem;font-weight:700}
+  .btn-ol{border:1px solid #d97706;color:#d97706;padding:13px 28px;border-radius:100px;font-size:.82rem;background:#fff}
+  .hero-vis{height:280px;background:linear-gradient(145deg,#fef3c7,#fde68a);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+  .hero-vis::after{content:'';position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);width:70%;height:30px;background:radial-gradient(ellipse,rgba(217,119,6,.1),transparent);border-radius:50%}
+  .calc{margin:0 32px 30px;background:#fff;border:1px solid #f0e8c8;border-radius:18px;padding:28px;box-shadow:0 8px 40px rgba(217,119,6,.06)}
+  .calc h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;text-align:center;color:#1c1917}
+  .calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+  .calc-field{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px}
+  .calc-field label{display:block;font-size:.58rem;color:#92400e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .calc-field .val{font-size:1.2rem;font-weight:700;color:#d97706}
+  .calc-result{text-align:center;padding:16px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-radius:12px;border:1px solid #fde68a}
+  .calc-result h4{font-size:.65rem;color:#92400e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .calc-result .big{font-size:2rem;font-weight:800;color:#b45309}
+  .calc-result .sub{font-size:.68rem;color:#78716c;margin-top:4px}
+  .steps{padding:36px 32px;background:#fff}
+  .steps h2{font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:22px;color:#1c1917}
+  .step-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:20px;text-align:center}
+  .step .num{width:28px;height:28px;border-radius:50%;background:#d97706;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;margin:0 auto 10px}
+  .step h4{font-size:.82rem;font-weight:600;margin-bottom:4px;color:#1c1917}
+  .step p{font-size:.65rem;color:#78716c;line-height:1.5}
+  .reviews{padding:36px 32px;background:#fffdf5}
+  .reviews h2{font-size:1.2rem;font-weight:700;margin-bottom:16px;color:#1c1917}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .rev{background:#fff;border:1px solid #f0e8c8;border-radius:12px;padding:18px}
+  .rev-stars{color:#d97706;font-size:.8rem;margin-bottom:6px}
+  .rev p{font-size:.72rem;color:#57534e;line-height:1.6;font-style:italic;margin-bottom:8px}
+  .rev cite{font-size:.65rem;font-style:normal;color:#92400e}
+  .cta{margin:20px 32px 40px;padding:36px;text-align:center;background:#d97706;border-radius:16px;color:#fff}
+  .cta h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+  .cta p{font-size:.78rem;opacity:.85;margin-bottom:16px}
+  .btn-cw{background:#fff;color:#d97706;padding:12px 28px;border-radius:100px;font-size:.82rem;font-weight:700;display:inline-block}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand">Solara<span>Energy</span></div><div class="nav-links"><span>Produkte</span><span>Rechner</span><span>Referenzen</span><span>Über uns</span></div><div class="btn-y">Angebot erhalten</div></nav>
+  <section class="hero">
+    <div><h1>Strom von deinem <span>eigenen Dach.</span></h1><p>Premium-Solaranlagen, schlüsselfertig installiert. Von der Beratung bis zur Inbetriebnahme — alles aus einer Hand. Spare bis zu 80% deiner Stromkosten.</p><div class="hero-btns"><div class="btn-yl">Kostenlose Beratung</div><div class="btn-ol">Rechner starten</div></div></div>
+    <div class="hero-vis">☀️</div>
+  </section>
+  <div class="calc"><h3>Dein Solar-Rechner</h3><div class="calc-grid"><div class="calc-field"><label>Dachfläche</label><div class="val">85 m²</div></div><div class="calc-field"><label>Ausrichtung</label><div class="val">Süd-West</div></div><div class="calc-field"><label>Stromverbrauch</label><div class="val">4.200 kWh</div></div></div><div class="calc-result"><h4>Geschätzte Ersparnis pro Jahr</h4><div class="big">€2.340</div><div class="sub">Amortisation in ca. 6.5 Jahren · CO₂-Ersparnis: 3.2t/Jahr</div></div></div>
+  <section class="steps"><h2>In 4 Schritten zur Solaranlage</h2><div class="step-row"><div class="step"><div class="num">1</div><h4>Beratung</h4><p>Kostenloser Dach-Check und Angebot.</p></div><div class="step"><div class="num">2</div><h4>Planung</h4><p>3D-Simulation mit Ertragsberechnung.</p></div><div class="step"><div class="num">3</div><h4>Installation</h4><p>Montage durch zertifizierte Teams.</p></div><div class="step"><div class="num">4</div><h4>Einsparen</h4><p>Strom produzieren, Geld sparen.</p></div></div></section>
+  <section class="reviews"><h2>Was unsere Kunden sagen</h2><div class="rev-grid"><div class="rev"><div class="rev-stars">⭐⭐⭐⭐⭐</div><p>"Installation in 2 Tagen, super sauber. Spare jetzt 70% meiner Stromkosten."</p><cite>— Thomas M., München</cite></div><div class="rev"><div class="rev-stars">⭐⭐⭐⭐⭐</div><p>"Beste Entscheidung des Jahres. Super professionell."</p><cite>— Sandra K., Hamburg</cite></div><div class="rev"><div class="rev-stars">⭐⭐⭐⭐⭐</div><p>"Vom Angebot bis Installation nur 3 Wochen."</p><cite>— Michael R., Berlin</cite></div></div></section>
+  <section class="cta"><h2>Bereit für deine Energiewende?</h2><p>Kostenlose Beratung in 48h. Unverbindlich.</p><div class="btn-cw">Jetzt Angebot anfordern →</div></section>
+</body>
+</html>

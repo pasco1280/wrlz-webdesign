@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0806; color:#f5f0e8; font-family:'Segoe UI',system-ui,sans-serif; overflow-x:hidden; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:20px 32px; }
+  .nav-brand { font-weight:900; font-size:1.3rem; letter-spacing:-0.03em; }
+  .nav-brand span { color:#f97316; }
+  .nav-links { display:flex; gap:20px; font-size:0.72rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.06em; }
+  .nav-cta { background:#f97316; color:#0a0806; padding:9px 20px; border-radius:6px; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; }
+
+  .hero { padding:60px 32px 40px; text-align:center; position:relative; }
+  .hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:600px; height:400px; background:radial-gradient(circle,rgba(249,115,22,0.06),transparent 70%); }
+
+  .eq-vis { display:flex; gap:3px; justify-content:center; height:80px; align-items:flex-end; margin-bottom:28px; }
+  .eq-bar { width:6px; border-radius:3px 3px 0 0; background:linear-gradient(to top,#f97316,#fbbf24); animation:eq 0.8s ease-in-out infinite alternate; }
+  .eq-bar:nth-child(1) { height:30px; animation-delay:0s; }
+  .eq-bar:nth-child(2) { height:50px; animation-delay:0.05s; }
+  .eq-bar:nth-child(3) { height:70px; animation-delay:0.1s; }
+  .eq-bar:nth-child(4) { height:45px; animation-delay:0.15s; }
+  .eq-bar:nth-child(5) { height:80px; animation-delay:0.2s; }
+  .eq-bar:nth-child(6) { height:55px; animation-delay:0.25s; }
+  .eq-bar:nth-child(7) { height:65px; animation-delay:0.3s; }
+  .eq-bar:nth-child(8) { height:40px; animation-delay:0.35s; }
+  .eq-bar:nth-child(9) { height:75px; animation-delay:0.4s; }
+  .eq-bar:nth-child(10) { height:35px; animation-delay:0.45s; }
+  .eq-bar:nth-child(11) { height:60px; animation-delay:0.5s; }
+  .eq-bar:nth-child(12) { height:50px; animation-delay:0.55s; }
+  .eq-bar:nth-child(13) { height:70px; animation-delay:0.6s; }
+  .eq-bar:nth-child(14) { height:45px; animation-delay:0.65s; }
+  .eq-bar:nth-child(15) { height:55px; animation-delay:0.7s; }
+  @keyframes eq { to { height:20px; } }
+
+  .hero h1 { font-size:3.5rem; font-weight:900; line-height:1; margin-bottom:16px; letter-spacing:-0.04em; text-transform:uppercase; }
+  .hero h1 span { color:#f97316; -webkit-text-stroke:1px #f97316; -webkit-text-fill-color:transparent; }
+  .hero p { color:rgba(255,255,255,0.4); font-size:0.85rem; max-width:400px; margin:0 auto 28px; line-height:1.7; }
+  .hero-btns { display:flex; gap:12px; justify-content:center; }
+  .btn-ora { background:#f97316; color:#0a0806; padding:14px 32px; border-radius:6px; font-weight:700; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; }
+  .btn-out { border:1px solid rgba(249,115,22,0.3); color:#f97316; padding:14px 32px; border-radius:6px; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; }
+
+  .artists { padding:40px 32px; }
+  .artists h2 { font-size:1.5rem; font-weight:800; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:20px; }
+  .artist-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .artist { border-radius:12px; overflow:hidden; position:relative; }
+  .artist-img { height:200px; display:flex; align-items:center; justify-content:center; font-size:3rem; }
+  .artist:nth-child(1) .artist-img { background:linear-gradient(135deg,#1a0f05,#2a1a0a); }
+  .artist:nth-child(2) .artist-img { background:linear-gradient(135deg,#0f0a1a,#1a102a); }
+  .artist:nth-child(3) .artist-img { background:linear-gradient(135deg,#0a1210,#102820); }
+  .artist:nth-child(4) .artist-img { background:linear-gradient(135deg,#1a0a0a,#2a0f0f); }
+  .artist-info { padding:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-top:0; border-radius:0 0 12px 12px; }
+  .artist-info h4 { font-size:0.85rem; font-weight:700; }
+  .artist-info span { font-size:0.65rem; color:#f97316; }
+
+  .studio { padding:40px 32px; }
+  .studio-card { background:rgba(249,115,22,0.04); border:1px solid rgba(249,115,22,0.1); border-radius:16px; padding:40px; display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; }
+  .studio-card h3 { font-size:1.8rem; font-weight:900; text-transform:uppercase; margin-bottom:12px; letter-spacing:-0.02em; }
+  .studio-card p { font-size:0.8rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-bottom:18px; }
+  .gear-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .gear { padding:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; text-align:center; }
+  .gear .icon { font-size:1.5rem; margin-bottom:6px; }
+  .gear h5 { font-size:0.7rem; font-weight:600; }
+  .gear span { font-size:0.58rem; color:rgba(255,255,255,0.3); }
+
+  .releases { padding:40px 32px; }
+  .releases h2 { font-size:1.5rem; font-weight:800; text-transform:uppercase; margin-bottom:20px; }
+  .release-list { display:flex; flex-direction:column; gap:2px; }
+  .release-item { display:grid; grid-template-columns:40px 2fr 1fr 1fr 80px; align-items:center; padding:14px 16px; background:rgba(255,255,255,0.02); font-size:0.78rem; gap:12px; }
+  .release-item:nth-child(odd) { background:rgba(255,255,255,0.03); }
+  .release-num { color:rgba(255,255,255,0.2); font-weight:700; }
+  .release-title { font-weight:600; }
+  .release-artist { color:rgba(255,255,255,0.4); }
+  .release-date { color:rgba(255,255,255,0.3); font-size:0.7rem; }
+  .release-play { color:#f97316; font-weight:700; font-size:0.72rem; text-align:right; }
+
+  .cta { margin:20px 32px 40px; padding:40px; text-align:center; background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(251,191,36,0.04)); border:1px solid rgba(249,115,22,0.15); border-radius:16px; }
+  .cta h2 { font-size:2rem; font-weight:900; text-transform:uppercase; margin-bottom:10px; letter-spacing:-0.02em; }
+  .cta p { font-size:0.8rem; color:rgba(255,255,255,0.4); margin-bottom:20px; }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-brand">Beat<span>Factory</span></div>
+    <div class="nav-links"><span>Artists</span><span>Studio</span><span>Releases</span><span>Events</span></div>
+    <div class="nav-cta">Contact</div>
+  </nav>
+
+  <section class="hero">
+    <div class="eq-vis">
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+    </div>
+    <h1>Where sound<br>becomes <span>art.</span></h1>
+    <p>Premium Music Production Studio in Berlin. Beats, Mixing, Mastering — von Bedroom Producers bis Label-Artists.</p>
+    <div class="hero-btns">
+      <div class="btn-ora">Session buchen</div>
+      <div class="btn-out">Portfolio hören</div>
+    </div>
+  </section>
+
+  <section class="artists">
+    <h2>Featured Artists</h2>
+    <div class="artist-grid">
+      <div class="artist"><div class="artist-img">🎤</div><div class="artist-info"><h4>NXRA</h4><span>Hip-Hop · 2.4M Streams</span></div></div>
+      <div class="artist"><div class="artist-img">🎹</div><div class="artist-info"><h4>Lena Waves</h4><span>Electronic · 890K Streams</span></div></div>
+      <div class="artist"><div class="artist-img">🎸</div><div class="artist-info"><h4>Rust & Gold</h4><span>Indie Rock · 1.1M Streams</span></div></div>
+      <div class="artist"><div class="artist-img">🎧</div><div class="artist-info"><h4>DJ Phantom</h4><span>Techno · 3.8M Streams</span></div></div>
+    </div>
+  </section>
+
+  <section class="studio">
+    <div class="studio-card">
+      <div>
+        <h3>State-of-the-art Studio.</h3>
+        <p>Analog-Wärme trifft digitale Präzision. Unser Studio in Berlin-Kreuzberg ist mit Top-Gear ausgestattet — für Sound, der sich von der Masse abhebt.</p>
+        <div class="btn-ora" style="display:inline-block">Studio-Tour buchen</div>
+      </div>
+      <div class="gear-grid">
+        <div class="gear"><div class="icon">🎛️</div><h5>SSL Duality</h5><span>Mixing Console</span></div>
+        <div class="gear"><div class="icon">🔊</div><h5>Genelec 8361</h5><span>Monitoring</span></div>
+        <div class="gear"><div class="icon">🎙️</div><h5>Neumann U87</h5><span>Vocals</span></div>
+        <div class="gear"><div class="icon">💿</div><h5>Pro Tools HDX</h5><span>DAW</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="releases">
+    <h2>Latest Releases</h2>
+    <div class="release-list">
+      <div class="release-item"><span class="release-num">01</span><span class="release-title">Midnight Protocol</span><span class="release-artist">NXRA</span><span class="release-date">Mar 2026</span><span class="release-play">▶ Play</span></div>
+      <div class="release-item"><span class="release-num">02</span><span class="release-title">Deep Current</span><span class="release-artist">Lena Waves</span><span class="release-date">Feb 2026</span><span class="release-play">▶ Play</span></div>
+      <div class="release-item"><span class="release-num">03</span><span class="release-title">Rust Never Sleeps</span><span class="release-artist">Rust & Gold</span><span class="release-date">Feb 2026</span><span class="release-play">▶ Play</span></div>
+      <div class="release-item"><span class="release-num">04</span><span class="release-title">Phantom Zone EP</span><span class="release-artist">DJ Phantom</span><span class="release-date">Jan 2026</span><span class="release-play">▶ Play</span></div>
+      <div class="release-item"><span class="release-num">05</span><span class="release-title">Echoes in Amber</span><span class="release-artist">NXRA ft. Lena</span><span class="release-date">Jan 2026</span><span class="release-play">▶ Play</span></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Your sound. Our craft.</h2>
+    <p>Erster Mix gratis. Keine Strings attached.</p>
+    <div class="btn-ora" style="display:inline-block">Session anfragen →</div>
+  </section>
+</body>
+</html>

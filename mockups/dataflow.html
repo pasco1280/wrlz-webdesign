@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#090b10; color:#e2e8f0; font-family:'Segoe UI',system-ui,sans-serif; overflow-x:hidden; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .nav-brand { font-weight:700; font-size:1rem; display:flex; align-items:center; gap:8px; }
+  .nav-brand .dot { width:8px; height:8px; border-radius:50%; background:#3b82f6; box-shadow:0 0 10px #3b82f6; }
+  .nav-links { display:flex; gap:20px; font-size:0.7rem; color:rgba(255,255,255,0.4); }
+  .nav-right { display:flex; gap:12px; align-items:center; }
+  .nav-avatar { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#3b82f6,#8b5cf6); }
+  .badge { background:rgba(59,130,246,0.15); color:#60a5fa; padding:4px 10px; border-radius:100px; font-size:0.6rem; font-weight:600; }
+
+  .dash { padding:20px 28px; }
+  .dash-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+  .dash-header h1 { font-size:1.4rem; font-weight:700; }
+  .dash-header .period { font-size:0.7rem; color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.05); padding:6px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); }
+
+  .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:20px; }
+  .kpi { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:16px; }
+  .kpi-label { font-size:0.6rem; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
+  .kpi-value { font-size:1.5rem; font-weight:800; }
+  .kpi-change { font-size:0.6rem; margin-top:4px; }
+  .kpi-change.up { color:#4ade80; }
+  .kpi-change.down { color:#f87171; }
+  .kpi:nth-child(1) .kpi-value { color:#3b82f6; }
+  .kpi:nth-child(2) .kpi-value { color:#8b5cf6; }
+  .kpi:nth-child(3) .kpi-value { color:#4ade80; }
+  .kpi:nth-child(4) .kpi-value { color:#f59e0b; }
+
+  .charts-row { display:grid; grid-template-columns:2fr 1fr; gap:12px; margin-bottom:20px; }
+  .chart-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px; }
+  .chart-card h3 { font-size:0.8rem; font-weight:600; margin-bottom:16px; }
+
+  .chart-area { height:140px; position:relative; overflow:hidden; }
+  .chart-line { position:absolute; bottom:0; left:0; right:0; }
+  .chart-line svg { width:100%; height:120px; }
+  .chart-grid { position:absolute; inset:0; }
+  .chart-grid-line { border-top:1px solid rgba(255,255,255,0.04); height:25%; }
+
+  .donut-chart { width:120px; height:120px; border-radius:50%; background:conic-gradient(#3b82f6 0% 42%,#8b5cf6 42% 68%,#4ade80 68% 85%,#f59e0b 85% 100%); margin:0 auto; position:relative; }
+  .donut-chart::after { content:''; position:absolute; inset:30px; border-radius:50%; background:#090b10; }
+  .donut-legend { margin-top:16px; display:flex; flex-direction:column; gap:6px; }
+  .legend-item { display:flex; align-items:center; gap:8px; font-size:0.65rem; color:rgba(255,255,255,0.5); }
+  .legend-dot { width:6px; height:6px; border-radius:50%; }
+
+  .table-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px; }
+  .table-card h3 { font-size:0.8rem; font-weight:600; margin-bottom:14px; }
+  .table-row { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.7rem; align-items:center; }
+  .table-row.header { color:rgba(255,255,255,0.3); font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; }
+  .status { padding:3px 10px; border-radius:100px; font-size:0.58rem; font-weight:600; display:inline-block; }
+  .status.active { background:rgba(74,222,128,0.1); color:#4ade80; }
+  .status.pending { background:rgba(251,191,36,0.1); color:#fbbf24; }
+  .status.error { background:rgba(248,113,113,0.1); color:#f87171; }
+
+  .sidebar-mini { position:fixed; left:0; top:0; bottom:0; width:52px; background:rgba(255,255,255,0.02); border-right:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; align-items:center; padding:16px 0; gap:20px; }
+  .sidebar-mini .s-icon { width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; color:rgba(255,255,255,0.3); }
+  .sidebar-mini .s-icon.active { background:rgba(59,130,246,0.15); color:#60a5fa; }
+  .sidebar-mini .s-logo { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,#3b82f6,#8b5cf6); margin-bottom:12px; }
+
+  .main-content { margin-left:52px; }
+</style>
+</head>
+<body>
+  <div class="sidebar-mini">
+    <div class="s-logo"></div>
+    <div class="s-icon active">📊</div>
+    <div class="s-icon">📈</div>
+    <div class="s-icon">👥</div>
+    <div class="s-icon">⚙️</div>
+    <div class="s-icon">📋</div>
+  </div>
+
+  <div class="main-content">
+    <nav class="nav">
+      <div class="nav-brand"><span class="dot"></span> DataFlow</div>
+      <div class="nav-links"><span>Dashboard</span><span>Pipelines</span><span>Reports</span><span>Settings</span></div>
+      <div class="nav-right">
+        <div class="badge">Pro Plan</div>
+        <div class="nav-avatar"></div>
+      </div>
+    </nav>
+
+    <div class="dash">
+      <div class="dash-header">
+        <h1>Analytics Overview</h1>
+        <div class="period">📅 Letzte 30 Tage</div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">Total Events</div>
+          <div class="kpi-value">2.4M</div>
+          <div class="kpi-change up">↑ 23.5%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Active Pipelines</div>
+          <div class="kpi-value">147</div>
+          <div class="kpi-change up">↑ 12 new</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Success Rate</div>
+          <div class="kpi-value">99.7%</div>
+          <div class="kpi-change up">↑ 0.3%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Avg Latency</div>
+          <div class="kpi-value">42ms</div>
+          <div class="kpi-change down">↓ -8ms</div>
+        </div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-card">
+          <h3>Event Volume (30d)</h3>
+          <div class="chart-area">
+            <div class="chart-grid">
+              <div class="chart-grid-line"></div>
+              <div class="chart-grid-line"></div>
+              <div class="chart-grid-line"></div>
+              <div class="chart-grid-line"></div>
+            </div>
+            <div class="chart-line">
+              <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,90 C30,85 60,70 90,65 C120,60 150,50 180,40 C210,30 240,45 270,35 C300,25 330,20 360,15 C380,12 400,10 400,10 L400,120 L0,120Z" fill="url(#g1)"/>
+                <path d="M0,90 C30,85 60,70 90,65 C120,60 150,50 180,40 C210,30 240,45 270,35 C300,25 330,20 360,15 C380,12 400,10" fill="none" stroke="#3b82f6" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>By Source</h3>
+          <div class="donut-chart"></div>
+          <div class="donut-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>API — 42%</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>Webhook — 26%</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>SDK — 17%</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Import — 15%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <h3>Recent Pipelines</h3>
+        <div class="table-row header">
+          <span>Pipeline</span><span>Events</span><span>Latency</span><span>Status</span>
+        </div>
+        <div class="table-row">
+          <span>user_signups → analytics</span><span>245K</span><span>23ms</span><span class="status active">Active</span>
+        </div>
+        <div class="table-row">
+          <span>payment_events → stripe</span><span>89K</span><span>31ms</span><span class="status active">Active</span>
+        </div>
+        <div class="table-row">
+          <span>error_logs → slack</span><span>12K</span><span>45ms</span><span class="status pending">Pending</span>
+        </div>
+        <div class="table-row">
+          <span>email_opens → crm</span><span>156K</span><span>67ms</span><span class="status active">Active</span>
+        </div>
+        <div class="table-row">
+          <span>inventory_sync → warehouse</span><span>8K</span><span>—</span><span class="status error">Error</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

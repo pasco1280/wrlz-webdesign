@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#f4f9f0;color:#1a3318;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .top-bar{background:#2d6a1e;color:#fff;text-align:center;padding:8px;font-size:.65rem;letter-spacing:.05em}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:#fff;border-bottom:1px solid #d4e8cc}
+  .nav-brand{font-weight:800;font-size:1.2rem;color:#2d6a1e}
+  .nav-links{display:flex;gap:18px;font-size:.72rem;color:#5a7a50}
+  .nav-cta{background:#2d6a1e;color:#fff;padding:8px 20px;border-radius:100px;font-size:.7rem;font-weight:700}
+  .hero{padding:50px 32px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#eaf5e3,#f4f9f0)}
+  .hero h1{font-size:2.6rem;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;color:#1a3318}
+  .hero h1 span{color:#2d6a1e}
+  .hero p{color:#5a7a50;font-size:.85rem;line-height:1.7;margin-bottom:22px}
+  .hero-btns{display:flex;gap:12px}
+  .btn-green{background:#2d6a1e;color:#fff;padding:12px 28px;border-radius:100px;font-size:.82rem;font-weight:700}
+  .btn-out{border:1px solid #2d6a1e;color:#2d6a1e;padding:12px 28px;border-radius:100px;font-size:.82rem;background:#fff}
+  .hero-visual{height:300px;background:linear-gradient(145deg,#d4e8cc,#c3deb8);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
+  .hero-visual::before{content:'🌿';position:absolute;top:-10px;right:-10px;font-size:6rem;opacity:.15;transform:rotate(30deg)}
+  .values{padding:40px 32px;background:#fff}
+  .values h2{font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:20px;color:#1a3318}
+  .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .val-card{background:#f4f9f0;border:1px solid #d4e8cc;border-radius:14px;padding:20px;text-align:center}
+  .val-card .icon{font-size:1.8rem;margin-bottom:10px}
+  .val-card h4{font-size:.82rem;font-weight:600;margin-bottom:4px;color:#1a3318}
+  .val-card p{font-size:.65rem;color:#5a7a50;line-height:1.5}
+  .products{padding:36px 32px;background:#f4f9f0}
+  .products h2{font-size:1.4rem;font-weight:700;margin-bottom:18px;color:#1a3318}
+  .prod-scroll{display:flex;gap:14px}
+  .prod{flex-shrink:0;width:190px;background:#fff;border:1px solid #d4e8cc;border-radius:14px;overflow:hidden}
+  .prod-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+  .prod:nth-child(1) .prod-img{background:linear-gradient(135deg,#e8f5e0,#d4e8cc)}
+  .prod:nth-child(2) .prod-img{background:linear-gradient(135deg,#e0e8f5,#ccd4e8)}
+  .prod:nth-child(3) .prod-img{background:linear-gradient(135deg,#f5e8e0,#e8d4cc)}
+  .prod:nth-child(4) .prod-img{background:linear-gradient(135deg,#e0f5f0,#cce8e0)}
+  .prod-info{padding:12px}
+  .prod-info h4{font-size:.78rem;font-weight:600;margin-bottom:2px;color:#1a3318}
+  .prod-info .tag{font-size:.58rem;color:#2d6a1e;font-weight:600}
+  .prod-info .price{font-size:.85rem;font-weight:700;color:#2d6a1e;margin-top:4px}
+  .impact{padding:36px 32px;background:#fff}
+  .impact-card{background:#2d6a1e;border-radius:18px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;color:#fff}
+  .impact-card h3{font-size:1.3rem;font-weight:700;margin-bottom:10px}
+  .impact-card p{font-size:.78rem;opacity:.8;line-height:1.7}
+  .impact-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .imp-stat{text-align:center;padding:14px;background:rgba(255,255,255,.12);border-radius:12px}
+  .imp-stat h4{font-size:1.5rem;font-weight:800}
+  .imp-stat span{font-size:.58rem;opacity:.7;text-transform:uppercase;letter-spacing:.06em}
+  .newsletter{margin:20px 32px 40px;padding:28px;text-align:center;background:#eaf5e3;border:1px solid #d4e8cc;border-radius:14px}
+  .newsletter h3{font-size:1rem;font-weight:700;margin-bottom:6px;color:#1a3318}
+  .newsletter p{font-size:.72rem;color:#5a7a50;margin-bottom:14px}
+  .nl-row{display:flex;gap:8px;max-width:340px;margin:0 auto}
+  .nl-input{flex:1;padding:10px 14px;background:#fff;border:1px solid #c3deb8;border-radius:100px;font-size:.78rem;color:#1a3318}
+  .nl-btn{background:#2d6a1e;color:#fff;padding:10px 20px;border-radius:100px;font-size:.72rem;font-weight:700}
+</style>
+</head>
+<body>
+  <div class="top-bar">🌱 Kostenloser Versand ab €39 — Bio zertifiziert — CO₂-neutraler Versand</div>
+  <nav class="nav"><div class="nav-brand">🌿 GreenLeaf</div><div class="nav-links"><span>Shop</span><span>Mission</span><span>Impact</span><span>Blog</span></div><div class="nav-cta">Shop now</div></nav>
+  <section class="hero">
+    <div>
+      <h1>Nachhaltig leben. <span>Natürlich geniessen.</span></h1>
+      <p>Bio-Superfoods, plastikfrei verpackt. Von der Farm direkt zu dir — fair, transparent und 100% organic.</p>
+      <div class="hero-btns"><div class="btn-green">Sortiment entdecken</div><div class="btn-out">Unsere Mission</div></div>
+    </div>
+    <div class="hero-visual">🌱</div>
+  </section>
+  <section class="values">
+    <h2>Wofür wir stehen</h2>
+    <div class="values-grid">
+      <div class="val-card"><div class="icon">🌍</div><h4>100% Bio</h4><p>Zertifiziert organisch, ohne Kompromisse.</p></div>
+      <div class="val-card"><div class="icon">♻️</div><h4>Zero Waste</h4><p>Kompostierbare Verpackungen.</p></div>
+      <div class="val-card"><div class="icon">🤝</div><h4>Fair Trade</h4><p>Direkte Partnerschaften mit Kleinbauern.</p></div>
+      <div class="val-card"><div class="icon">🚀</div><h4>Same-Day</h4><p>CO₂-neutraler Versand am selben Tag.</p></div>
+    </div>
+  </section>
+  <section class="products">
+    <h2>Bestseller</h2>
+    <div class="prod-scroll">
+      <div class="prod"><div class="prod-img">🥑</div><div class="prod-info"><h4>Organic Avocado Oil</h4><div class="tag">Bestseller</div><div class="price">€14.90</div></div></div>
+      <div class="prod"><div class="prod-img">🫐</div><div class="prod-info"><h4>Wild Blueberry Powder</h4><div class="tag">Neu</div><div class="price">€22.50</div></div></div>
+      <div class="prod"><div class="prod-img">🍵</div><div class="prod-info"><h4>Ceremonial Matcha</h4><div class="tag">Premium</div><div class="price">€34.00</div></div></div>
+      <div class="prod"><div class="prod-img">🌰</div><div class="prod-info"><h4>Raw Cacao Nibs</h4><div class="tag">Organic</div><div class="price">€11.90</div></div></div>
+    </div>
+  </section>
+  <section class="impact">
+    <div class="impact-card">
+      <div><h3>Unser Impact in Zahlen.</h3><p>Jeder Kauf unterstützt direkt nachhaltige Landwirtschaft. Wir pflanzen für jede Bestellung einen Baum.</p></div>
+      <div class="impact-stats"><div class="imp-stat"><h4>180K</h4><span>Bäume gepflanzt</span></div><div class="imp-stat"><h4>0kg</h4><span>Plastik</span></div><div class="imp-stat"><h4>340</h4><span>Partner-Farmer</span></div><div class="imp-stat"><h4>12</h4><span>Länder</span></div></div>
+    </div>
+  </section>
+  <section class="newsletter"><h3>Join the Green Movement 🌱</h3><p>10% Rabatt auf deine erste Bestellung + wöchentliche Rezepte.</p><div class="nl-row"><input class="nl-input" placeholder="deine@email.com"><div class="nl-btn">Anmelden</div></div></section>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#070a10;color:#e8ecf4;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .nav-brand{font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+  .nav-brand .icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#0ea5e9,#6366f1)}
+  .nav-links{display:flex;gap:20px;font-size:.7rem;color:rgba(255,255,255,.4)}
+  .btn-sm{padding:7px 16px;background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:6px;font-size:.68rem;font-weight:600;color:#fff}
+  .hero{padding:80px 32px 50px;text-align:center;position:relative}
+  .hero::before{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(14,165,233,.06),rgba(99,102,241,.04),transparent 70%)}
+  .hero-chip{display:inline-flex;gap:6px;align-items:center;padding:6px 14px;border:1px solid rgba(14,165,233,.2);border-radius:100px;font-size:.62rem;color:#38bdf8;margin-bottom:20px}
+  .hero h1{font-size:3rem;font-weight:800;line-height:1.05;margin-bottom:14px;letter-spacing:-.03em}
+  .hero h1 span{background:linear-gradient(135deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:rgba(255,255,255,.4);font-size:.85rem;max-width:460px;margin:0 auto 28px;line-height:1.7}
+  .hero-btns{display:flex;gap:12px;justify-content:center}
+  .btn-l{background:linear-gradient(135deg,#0ea5e9,#6366f1);padding:13px 30px;border-radius:10px;font-size:.82rem;font-weight:700;color:#fff}
+  .btn-o{border:1px solid rgba(255,255,255,.1);padding:13px 30px;border-radius:10px;font-size:.82rem;color:rgba(255,255,255,.6)}
+  .logos{padding:28px 32px;text-align:center}
+  .logos p{font-size:.58rem;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.15em;margin-bottom:14px}
+  .logos-row{display:flex;justify-content:center;gap:32px;opacity:.2;font-size:.8rem;font-weight:700}
+  .infra{padding:40px 32px}
+  .infra h2{font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:8px}
+  .infra .sub{text-align:center;color:rgba(255,255,255,.35);font-size:.78rem;margin-bottom:24px}
+  .infra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .infra-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px}
+  .infra-card .ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px}
+  .infra-card:nth-child(1) .ic{background:rgba(14,165,233,.12)}
+  .infra-card:nth-child(2) .ic{background:rgba(99,102,241,.12)}
+  .infra-card:nth-child(3) .ic{background:rgba(74,222,128,.12)}
+  .infra-card h4{font-size:.88rem;font-weight:600;margin-bottom:8px}
+  .infra-card p{font-size:.72rem;color:rgba(255,255,255,.35);line-height:1.6}
+  .arch{padding:32px;margin:20px 32px;background:rgba(14,165,233,.03);border:1px solid rgba(14,165,233,.08);border-radius:16px}
+  .arch h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;text-align:center}
+  .arch-flow{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+  .arch-node{padding:10px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:.7rem;font-weight:600}
+  .arch-arrow{color:rgba(14,165,233,.5);font-size:.9rem}
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:32px}
+  .stat{text-align:center;padding:20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:12px}
+  .stat h3{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .stat p{font-size:.6rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+  .cta{margin:20px 32px 40px;padding:40px;text-align:center;background:linear-gradient(135deg,rgba(14,165,233,.06),rgba(99,102,241,.04));border:1px solid rgba(14,165,233,.12);border-radius:16px}
+  .cta h2{font-size:1.8rem;font-weight:800;margin-bottom:10px;letter-spacing:-.02em}
+  .cta p{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:20px}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand"><div class="icon"></div>CloudNine</div><div class="nav-links"><span>Platform</span><span>Solutions</span><span>Pricing</span><span>Docs</span></div><div class="btn-sm">Free Trial</div></nav>
+  <section class="hero">
+    <div class="hero-chip">☁️ Now with EU Data Residency</div>
+    <h1>Cloud Infrastructure<br>that <span>just works.</span></h1>
+    <p>Deploy, scale and manage your infrastructure in seconds. Multi-cloud orchestration mit deutscher Datensouveränität — für Teams, die schneller deployen wollen.</p>
+    <div class="hero-btns"><div class="btn-l">Start deploying →</div><div class="btn-o">View pricing</div></div>
+  </section>
+  <div class="logos"><p>Trusted by 2,000+ engineering teams</p><div class="logos-row"><span>SAP</span><span>Zalando</span><span>N26</span><span>Celonis</span><span>FlixBus</span></div></div>
+  <section class="infra">
+    <h2>Built for modern teams.</h2>
+    <p class="sub">Everything you need to ship faster and sleep better.</p>
+    <div class="infra-grid">
+      <div class="infra-card"><div class="ic">🚀</div><h4>One-click Deploy</h4><p>Push to main, we handle the rest. Zero-config deployments with automatic rollbacks.</p></div>
+      <div class="infra-card"><div class="ic">🔒</div><h4>SOC2 & GDPR</h4><p>Enterprise-grade security out of the box. German data centers, end-to-end encryption.</p></div>
+      <div class="infra-card"><div class="ic">📊</div><h4>Real-time Observability</h4><p>Logs, metrics and traces in one place. AI-powered anomaly detection alerts you before users notice.</p></div>
+    </div>
+  </section>
+  <div class="arch">
+    <h3>How it works</h3>
+    <div class="arch-flow">
+      <div class="arch-node">📝 git push</div><div class="arch-arrow">→</div>
+      <div class="arch-node">🔨 Build</div><div class="arch-arrow">→</div>
+      <div class="arch-node">🧪 Test</div><div class="arch-arrow">→</div>
+      <div class="arch-node">🚀 Deploy</div><div class="arch-arrow">→</div>
+      <div class="arch-node">📊 Monitor</div>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><h3>99.99%</h3><p>Uptime SLA</p></div>
+    <div class="stat"><h3>< 50ms</h3><p>Latency EU</p></div>
+    <div class="stat"><h3>2,000+</h3><p>Teams</p></div>
+    <div class="stat"><h3>23</h3><p>Regions</p></div>
+  </div>
+  <section class="cta">
+    <h2>Ship faster. Sleep better.</h2>
+    <p>$0 for up to 1,000 deployments/month. No credit card required.</p>
+    <div class="btn-l" style="display:inline-block">Start free →</div>
+  </section>
+</body>
+</html>

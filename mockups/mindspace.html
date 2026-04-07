@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#06050a;color:#f0eef8;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px}
+  .nav-brand{font-weight:300;font-size:1.2rem;letter-spacing:.15em;text-transform:uppercase}
+  .nav-links{display:flex;gap:20px;font-size:.68rem;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase}
+  .btn-w{padding:8px 18px;border:1px solid rgba(255,255,255,.15);border-radius:100px;font-size:.68rem;color:#fff;letter-spacing:.06em}
+  .hero{padding:100px 32px 60px;text-align:center;position:relative}
+  .hero::before{content:'';position:absolute;top:40px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(168,85,247,.05),rgba(59,130,246,.03),transparent 70%);border-radius:50%}
+  .hero-orb{width:140px;height:140px;border-radius:50%;margin:0 auto 32px;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(59,130,246,.1));border:1px solid rgba(168,85,247,.15);display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative}
+  .hero-orb::before{content:'';position:absolute;inset:-15px;border-radius:50%;border:1px solid rgba(168,85,247,.06);animation:breathe 4s ease-in-out infinite}
+  .hero-orb::after{content:'';position:absolute;inset:-30px;border-radius:50%;border:1px solid rgba(59,130,246,.04);animation:breathe 4s ease-in-out infinite .5s}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.5}}
+  .hero h1{font-size:3rem;font-weight:200;line-height:1.1;margin-bottom:16px;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;font-weight:300;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:rgba(255,255,255,.35);font-size:.85rem;max-width:440px;margin:0 auto 28px;line-height:1.8;font-weight:300}
+  .hero-btns{display:flex;gap:14px;justify-content:center}
+  .btn-purp{background:linear-gradient(135deg,#a855f7,#3b82f6);padding:14px 32px;border-radius:100px;font-size:.82rem;font-weight:500;color:#fff;letter-spacing:.02em}
+  .btn-ghost{border:1px solid rgba(255,255,255,.1);padding:14px 32px;border-radius:100px;font-size:.82rem;color:rgba(255,255,255,.5)}
+  .session-types{padding:48px 32px}
+  .session-types h2{font-size:1.5rem;font-weight:300;text-align:center;margin-bottom:24px;letter-spacing:.02em}
+  .type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .type-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:28px;text-align:center}
+  .type-card .emoji{font-size:2rem;margin-bottom:14px}
+  .type-card h4{font-size:.9rem;font-weight:500;margin-bottom:8px}
+  .type-card p{font-size:.72rem;color:rgba(255,255,255,.35);line-height:1.6;margin-bottom:14px}
+  .type-card .duration{font-size:.65rem;color:rgba(168,85,247,.6);font-weight:500}
+  .type-card .price{font-size:1.2rem;font-weight:600;margin-top:8px;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .spaces{padding:40px 32px}
+  .spaces h2{font-size:1.5rem;font-weight:300;text-align:center;margin-bottom:20px}
+  .space-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .space{border-radius:16px;overflow:hidden;position:relative}
+  .space-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+  .space:nth-child(1) .space-img{background:linear-gradient(135deg,#0a0812,#1a1028)}
+  .space:nth-child(2) .space-img{background:linear-gradient(135deg,#080a12,#101828)}
+  .space-info{padding:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-top:0;border-radius:0 0 16px 16px}
+  .space-info h4{font-size:.88rem;font-weight:500;margin-bottom:4px}
+  .space-info p{font-size:.68rem;color:rgba(255,255,255,.35)}
+  .testimonials{padding:40px 32px;text-align:center}
+  .testimonials h2{font-size:1.3rem;font-weight:300;margin-bottom:24px}
+  .test-card{max-width:480px;margin:0 auto;padding:28px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:16px}
+  .test-card blockquote{font-size:.9rem;font-style:italic;font-weight:300;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:14px}
+  .test-card cite{font-size:.72rem;font-style:normal;color:rgba(168,85,247,.5)}
+  .cta{margin:28px 32px 40px;padding:48px;text-align:center;background:linear-gradient(135deg,rgba(168,85,247,.04),rgba(59,130,246,.03));border:1px solid rgba(168,85,247,.08);border-radius:20px}
+  .cta h2{font-size:1.8rem;font-weight:200;margin-bottom:10px;letter-spacing:.02em}
+  .cta p{font-size:.82rem;color:rgba(255,255,255,.35);margin-bottom:22px;font-weight:300}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand">Mindspace</div><div class="nav-links"><span>Sessions</span><span>Räume</span><span>Über uns</span><span>Journal</span></div><div class="btn-w">Buchen</div></nav>
+  <section class="hero">
+    <div class="hero-orb">🧘</div>
+    <h1>Finde deine<br><em>innere Stille.</em></h1>
+    <p>Premium-Meditationsräume im Herzen von Berlin. Geführte Sessions, Sound Healing und Breathwork — für Menschen, die Raum zum Atmen suchen.</p>
+    <div class="hero-btns"><div class="btn-purp">Session buchen</div><div class="btn-ghost">Räume entdecken</div></div>
+  </section>
+  <section class="session-types">
+    <h2>Unsere Sessions</h2>
+    <div class="type-grid">
+      <div class="type-card"><div class="emoji">🧘</div><h4>Geführte Meditation</h4><p>Tiefe Entspannung mit professioneller Anleitung. Ideal für Anfänger und Fortgeschrittene.</p><div class="duration">45 Min · Täglich</div><div class="price">€25</div></div>
+      <div class="type-card"><div class="emoji">🔊</div><h4>Sound Healing</h4><p>Klangschalen, Gongs und Frequenztherapie. Lass dich von Vibrationen in tiefe Ruhe tragen.</p><div class="duration">60 Min · Mi & Sa</div><div class="price">€35</div></div>
+      <div class="type-card"><div class="emoji">💨</div><h4>Breathwork</h4><p>Transformative Atemtechniken nach Wim Hof und Holotroper Methode. Intensiv und befreiend.</p><div class="duration">90 Min · Fr</div><div class="price">€40</div></div>
+    </div>
+  </section>
+  <section class="spaces">
+    <h2>Unsere Räume</h2>
+    <div class="space-grid">
+      <div class="space"><div class="space-img">🕯️</div><div class="space-info"><h4>The Cocoon</h4><p>Intimer Raum für bis zu 12 Personen. Gedämpftes Licht, Naturmaterialien.</p></div></div>
+      <div class="space"><div class="space-img">🌊</div><div class="space-info"><h4>The Flow Room</h4><p>Großzügiger Raum mit Surround-Sound. Für Sound Healing und große Gruppen.</p></div></div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <h2>Stimmen unserer Gäste</h2>
+    <div class="test-card">
+      <blockquote>"Mindspace ist mein Rückzugsort. Die Atmosphäre ist wie nichts anderes in Berlin — man spürt sofort, wie der Stress abfällt."</blockquote>
+      <cite>— Julia W., Regelmäßige Besucherin</cite>
+    </div>
+  </section>
+  <section class="cta">
+    <h2>Dein erster Besuch ist kostenlos.</h2>
+    <p>Erlebe eine geführte Session und entscheide dann, ob Mindspace zu dir passt.</p>
+    <div class="btn-purp" style="display:inline-block">Gratis-Session buchen →</div>
+  </section>
+</body>
+</html>

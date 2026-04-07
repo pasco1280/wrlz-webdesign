@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0c0a06;color:#f5f0e4;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid rgba(255,255,255,.05)}
+  .nav-brand{font-weight:900;font-size:1.2rem;letter-spacing:-.02em}
+  .nav-brand span{color:#ef4444}
+  .nav-links{display:flex;gap:20px;font-size:.7rem;color:rgba(255,255,255,.4)}
+  .nav-right{display:flex;gap:12px;align-items:center}
+  .btn-red{padding:8px 18px;background:#ef4444;border-radius:100px;font-size:.7rem;font-weight:700;color:#fff}
+  .hero{padding:60px 32px 40px;text-align:center;position:relative}
+  .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(circle,rgba(239,68,68,.06),transparent 70%)}
+  .hero h1{font-size:3.2rem;font-weight:900;line-height:1;margin-bottom:14px;letter-spacing:-.04em}
+  .hero h1 span{color:#ef4444}
+  .hero p{color:rgba(255,255,255,.4);font-size:.85rem;max-width:400px;margin:0 auto 24px;line-height:1.7}
+  .hero-tags{display:flex;gap:8px;justify-content:center;margin-bottom:24px}
+  .htag{padding:6px 14px;border:1px solid rgba(255,255,255,.08);border-radius:100px;font-size:.65rem;color:rgba(255,255,255,.4)}
+  .specials{padding:36px 32px}
+  .specials h2{font-size:1.4rem;font-weight:800;margin-bottom:18px}
+  .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .spec{border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+  .spec-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative}
+  .spec:nth-child(1) .spec-img{background:linear-gradient(135deg,#1a0a06,#2a1208)}
+  .spec:nth-child(2) .spec-img{background:linear-gradient(135deg,#0a0c12,#121828)}
+  .spec:nth-child(3) .spec-img{background:linear-gradient(135deg,#120a06,#221408)}
+  .spec-badge{position:absolute;top:10px;right:10px;background:#ef4444;color:#fff;padding:4px 10px;border-radius:100px;font-size:.55rem;font-weight:700}
+  .spec-info{padding:16px}
+  .spec-info h4{font-size:.9rem;font-weight:700;margin-bottom:4px}
+  .spec-info p{font-size:.7rem;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:8px}
+  .spec-info .price-row{display:flex;justify-content:space-between;align-items:center}
+  .spec-info .price{font-size:1rem;font-weight:800;color:#ef4444}
+  .spec-info .order-btn{padding:6px 14px;background:rgba(239,68,68,.12);color:#ef4444;border-radius:100px;font-size:.65rem;font-weight:600}
+  .menu-peek{padding:36px 32px}
+  .menu-peek h2{font-size:1.4rem;font-weight:800;margin-bottom:18px}
+  .menu-cats{display:flex;gap:10px;margin-bottom:18px}
+  .mcat{padding:8px 18px;border-radius:100px;font-size:.7rem;font-weight:600;background:rgba(255,255,255,.04);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.06)}
+  .mcat.active{background:rgba(239,68,68,.12);color:#ef4444;border-color:rgba(239,68,68,.2)}
+  .menu-list{display:flex;flex-direction:column;gap:2px}
+  .menu-item{display:grid;grid-template-columns:40px 2fr 1fr auto;align-items:center;padding:12px 14px;background:rgba(255,255,255,.02);font-size:.78rem;gap:12px;border-radius:8px}
+  .menu-item:nth-child(odd){background:rgba(255,255,255,.03)}
+  .menu-item .emoji{font-size:1.2rem}
+  .menu-item .name{font-weight:600}
+  .menu-item .desc{font-size:.65rem;color:rgba(255,255,255,.3)}
+  .menu-item .price{font-weight:700;color:#ef4444}
+  .about{padding:36px 32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .about-img{height:200px;background:linear-gradient(135deg,rgba(239,68,68,.04),rgba(239,68,68,.02));border:1px solid rgba(239,68,68,.08);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:4rem}
+  .about h3{font-size:1.3rem;font-weight:800;margin-bottom:10px}
+  .about p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:14px}
+  .about-stats{display:flex;gap:20px}
+  .about-stat h4{font-size:1.3rem;font-weight:800;color:#ef4444}
+  .about-stat span{font-size:.6rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em}
+  .cta{margin:20px 32px 40px;padding:36px;text-align:center;background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(239,68,68,.02));border:1px solid rgba(239,68,68,.12);border-radius:16px}
+  .cta h2{font-size:1.6rem;font-weight:900;margin-bottom:8px}
+  .cta p{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:16px}
+  .cta-btns{display:flex;gap:12px;justify-content:center}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand">Flavour<span>Lab</span></div><div class="nav-links"><span>Menü</span><span>Reservieren</span><span>Story</span><span>Events</span></div><div class="nav-right"><div class="btn-red">Bestellen</div></div></nav>
+  <section class="hero">
+    <h1>Food is an <span>experience.</span></h1>
+    <p>Modern Asian Fusion Kitchen in Berlin-Mitte. Frische Zutaten, kreative Kombinationen und eine Atmosphäre, die du nicht vergisst.</p>
+    <div class="hero-tags"><div class="htag">🔥 Asian Fusion</div><div class="htag">🌿 Farm-to-Table</div><div class="htag">🍷 Natural Wine</div><div class="htag">⭐ Michelin Recommended</div></div>
+    <div style="display:flex;gap:12px;justify-content:center"><div class="btn-red">Tisch reservieren</div><div style="border:1px solid rgba(239,68,68,.3);color:#ef4444;padding:12px 28px;border-radius:100px;font-size:.82rem">Menü ansehen</div></div>
+  </section>
+  <section class="specials">
+    <h2>This Week's Specials 🔥</h2>
+    <div class="spec-grid">
+      <div class="spec"><div class="spec-img">🍜<div class="spec-badge">Chef's Pick</div></div><div class="spec-info"><h4>Miso-Ramen Deluxe</h4><p>48h Tonkotsu-Brühe, Chashu Pork, Ajitama Egg, Black Garlic Oil</p><div class="price-row"><span class="price">€18.90</span><span class="order-btn">Bestellen</span></div></div></div>
+      <div class="spec"><div class="spec-img">🥟<div class="spec-badge">Neu</div></div><div class="spec-info"><h4>Truffle Gyoza</h4><p>Handgemachte Dumplings mit schwarzem Trüffel und Ponzu-Dip</p><div class="price-row"><span class="price">€14.50</span><span class="order-btn">Bestellen</span></div></div></div>
+      <div class="spec"><div class="spec-img">🍣<div class="spec-badge">Limited</div></div><div class="spec-info"><h4>Omakase Platte</h4><p>12-teiliges Sushi-Set vom Chef. Tagesfrischer Fisch aus Tsukiji.</p><div class="price-row"><span class="price">€42.00</span><span class="order-btn">Bestellen</span></div></div></div>
+    </div>
+  </section>
+  <section class="menu-peek">
+    <h2>Menü Highlights</h2>
+    <div class="menu-cats"><div class="mcat active">Vorspeisen</div><div class="mcat">Hauptgänge</div><div class="mcat">Desserts</div><div class="mcat">Drinks</div></div>
+    <div class="menu-list">
+      <div class="menu-item"><span class="emoji">🥗</span><div><span class="name">Crispy Duck Salad</span><div class="desc">Knusprige Ente, Mango, Cashews, Thai-Dressing</div></div><span></span><span class="price">€13.90</span></div>
+      <div class="menu-item"><span class="emoji">🫕</span><div><span class="name">Tom Kha Gai</span><div class="desc">Kokosmilch-Suppe, Galgant, Lemongrass, Koriander</div></div><span></span><span class="price">€9.50</span></div>
+      <div class="menu-item"><span class="emoji">🥢</span><div><span class="name">Edamame Chili Crunch</span><div class="desc">Geröstete Edamame, Chili-Crisp, Sesam, Meersalz</div></div><span></span><span class="price">€7.90</span></div>
+      <div class="menu-item"><span class="emoji">🍤</span><div><span class="name">Tempura Prawns</span><div class="desc">Tiger Prawns im Yuzu-Teig, Wasabi-Aioli</div></div><span></span><span class="price">€15.90</span></div>
+    </div>
+  </section>
+  <section class="about">
+    <div class="about-img">👨‍🍳</div>
+    <div>
+      <h3>Die Story dahinter.</h3>
+      <p>FlavourLab wurde 2022 von Chef Takeshi und Lisa in Berlin-Mitte gegründet — mit dem Ziel, authentische asiatische Küche mit europäischen Einflüssen neu zu denken. Jedes Gericht erzählt eine Geschichte.</p>
+      <div class="about-stats">
+        <div class="about-stat"><h4>4.8</h4><span>Google Rating</span></div>
+        <div class="about-stat"><h4>12K+</h4><span>Gäste/Monat</span></div>
+        <div class="about-stat"><h4>96%</h4><span>Empfehlungsrate</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta">
+    <h2>Hunger bekommen? 🍜</h2>
+    <p>Reserviere jetzt oder bestelle direkt nach Hause.</p>
+    <div class="cta-btns"><div class="btn-red">Tisch reservieren</div><div style="border:1px solid rgba(239,68,68,.3);color:#ef4444;padding:12px 28px;border-radius:100px;font-size:.82rem">Lieferung bestellen</div></div>
+  </section>
+</body>
+</html>

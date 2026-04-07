@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#f0f4ff;color:#1e293b;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;background:#fff;border-bottom:1px solid #e2e8f0}
+  .nav-brand{font-weight:800;font-size:1.1rem;color:#1e40af}
+  .nav-brand span{color:#6366f1}
+  .nav-links{display:flex;gap:20px;font-size:.72rem;color:#64748b}
+  .nav-btns{display:flex;gap:10px}
+  .btn-login{padding:8px 18px;border:1px solid #e2e8f0;border-radius:8px;font-size:.7rem;color:#475569;background:#fff}
+  .btn-start{padding:8px 18px;background:#1e40af;border-radius:8px;font-size:.7rem;font-weight:600;color:#fff}
+  .hero{padding:70px 32px 50px;text-align:center;background:linear-gradient(180deg,#e8eeff,#f0f4ff)}
+  .hero-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:#e0e7ff;border-radius:100px;font-size:.62rem;color:#3b5998;margin-bottom:20px;font-weight:600}
+  .hero h1{font-size:3rem;font-weight:800;line-height:1.05;margin-bottom:14px;letter-spacing:-.03em;color:#0f172a}
+  .hero h1 .grad{color:#4f46e5}
+  .hero p{color:#64748b;font-size:.85rem;max-width:440px;margin:0 auto 28px;line-height:1.7}
+  .hero-btns{display:flex;gap:12px;justify-content:center}
+  .btn-hero{background:#1e40af;padding:13px 30px;border-radius:10px;font-size:.82rem;font-weight:700;color:#fff}
+  .btn-hero-o{border:1px solid #c7d2fe;padding:13px 30px;border-radius:10px;font-size:.82rem;color:#3b5998;background:#fff}
+  .trust{padding:28px;text-align:center;background:#fff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+  .trust p{font-size:.58rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.15em;margin-bottom:12px}
+  .trust-logos{display:flex;justify-content:center;gap:28px;color:#94a3b8;font-size:.8rem;font-weight:700}
+  .features{padding:40px 32px;background:#fff}
+  .features h2{font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:8px;color:#0f172a}
+  .features .sub{text-align:center;color:#64748b;font-size:.78rem;margin-bottom:24px}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .feat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:22px}
+  .feat .ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:12px}
+  .feat:nth-child(1) .ic{background:#ede9fe}
+  .feat:nth-child(2) .ic{background:#dcfce7}
+  .feat:nth-child(3) .ic{background:#dbeafe}
+  .feat h4{font-size:.88rem;font-weight:600;margin-bottom:6px}
+  .feat p{font-size:.72rem;color:#64748b;line-height:1.6}
+  .invest-card{margin:24px 32px;background:#1e40af;border-radius:18px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;color:#fff}
+  .invest-card h3{font-size:1.3rem;font-weight:700;margin-bottom:10px}
+  .invest-card p{font-size:.78rem;opacity:.75;line-height:1.7}
+  .invest-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .inv-stat{background:rgba(255,255,255,.12);border-radius:12px;padding:16px;text-align:center}
+  .inv-stat h4{font-size:1.5rem;font-weight:800}
+  .inv-stat span{font-size:.58rem;opacity:.7;text-transform:uppercase;letter-spacing:.06em}
+  .security{padding:28px;text-align:center;background:#f8fafc;border-top:1px solid #e2e8f0}
+  .security h3{font-size:.95rem;font-weight:600;margin-bottom:14px;color:#0f172a}
+  .sec-badges{display:flex;justify-content:center;gap:14px}
+  .sec-badge{padding:8px 16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;font-size:.65rem;color:#64748b;display:flex;align-items:center;gap:6px}
+  .cta{margin:20px 32px 40px;padding:36px;text-align:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px}
+  .cta h2{font-size:1.6rem;font-weight:800;margin-bottom:8px;color:#0f172a}
+  .cta p{font-size:.78rem;color:#64748b;margin-bottom:16px}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand">Terra<span>Fund</span></div><div class="nav-links"><span>Produkte</span><span>Über uns</span><span>Sicherheit</span><span>FAQ</span></div><div class="nav-btns"><div class="btn-login">Login</div><div class="btn-start">Konto eröffnen</div></div></nav>
+  <section class="hero">
+    <div class="hero-chip">🔐 Jetzt live — Reguliert durch BaFin</div>
+    <h1>Investieren.<br>Einfach <span class="grad">intelligent.</span></h1>
+    <p>Die neue Generation der Geldanlage. KI-gestützte Portfolios, transparente Gebühren und Renditen, die überzeugen.</p>
+    <div class="hero-btns"><div class="btn-hero">Kostenloses Depot →</div><div class="btn-hero-o">Rendite berechnen</div></div>
+  </section>
+  <div class="trust"><p>Vertraut von über 50.000 Anlegern</p><div class="trust-logos"><span>HANDELSBLATT</span><span>FAZ</span><span>WELT</span><span>CAPITAL</span><span>t3n</span></div></div>
+  <section class="features">
+    <h2>Warum TerraFund?</h2>
+    <p class="sub">Alles, was du brauchst — in einer App.</p>
+    <div class="feat-grid">
+      <div class="feat"><div class="ic">🤖</div><h4>KI-Portfolio Manager</h4><p>Automatische Diversifikation und Rebalancing, angepasst an dein Risikoprofil.</p></div>
+      <div class="feat"><div class="ic">💰</div><h4>Ab 1€ investieren</h4><p>Fractional Shares machen Aktien, ETFs und Krypto für jeden zugänglich.</p></div>
+      <div class="feat"><div class="ic">🔒</div><h4>Bank-Level Security</h4><p>256-Bit Verschlüsselung, 2FA und deutsche Einlagensicherung bis €100.000.</p></div>
+    </div>
+  </section>
+  <div class="invest-card">
+    <div><h3>Performance, die spricht.</h3><p>Unsere KI-gesteuerten Portfolios haben den Markt in den letzten 3 Jahren konsistent geschlagen — bei geringerem Risiko.</p></div>
+    <div class="invest-stats"><div class="inv-stat"><h4>18.4%</h4><span>Rendite p.a.</span></div><div class="inv-stat"><h4>€2.1B</h4><span>Assets Managed</span></div><div class="inv-stat"><h4>0.39%</h4><span>Gebühren</span></div><div class="inv-stat"><h4>50K+</h4><span>Anleger</span></div></div>
+  </div>
+  <section class="security"><h3>Sicherheit auf höchstem Niveau</h3><div class="sec-badges"><div class="sec-badge">🔒 BaFin reguliert</div><div class="sec-badge">🛡️ Einlagensicherung</div><div class="sec-badge">🇩🇪 Deutsche Server</div><div class="sec-badge">✅ ISO 27001</div></div></section>
+  <section class="cta"><h2>Starte in 3 Minuten.</h2><p>Kostenlos registrieren. Keine versteckten Kosten.</p><div class="btn-hero" style="display:inline-block">Jetzt Depot eröffnen →</div></section>
+</body>
+</html>

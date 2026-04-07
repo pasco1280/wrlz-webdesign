@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#faf7f2;color:#3a2e20;font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;background:#fff;border-bottom:1px solid #ece5d8}
+  .nav-brand{font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:#6b4c2a}
+  .nav-links{display:flex;gap:24px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a64;font-family:system-ui,sans-serif}
+  .nav-icons{display:flex;gap:16px;font-size:.9rem}
+  .hero{padding:50px 32px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:linear-gradient(135deg,#faf7f2,#f5efe4)}
+  .hero-sub{font-family:system-ui,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#b8a88e;margin-bottom:14px}
+  .hero h1{font-size:2.8rem;font-weight:400;line-height:1.1;margin-bottom:16px;font-style:italic;color:#3a2e20}
+  .hero h1 span{color:#b8863a;font-style:normal}
+  .hero p{color:#8a7a64;font-family:system-ui,sans-serif;font-size:.8rem;max-width:380px;line-height:1.7;margin-bottom:24px}
+  .btn-lux{display:inline-block;background:#b8863a;color:#fff;padding:13px 32px;font-family:system-ui,sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:2px}
+  .hero-visual{height:340px;background:linear-gradient(145deg,#ede4d4,#f5efe4);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .hero-visual .circle{width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,#e8d5b8,#f0e6d2);display:flex;align-items:center;justify-content:center;font-size:4rem}
+  .trust-bar{padding:18px 32px;background:#fff;border-top:1px solid #ece5d8;border-bottom:1px solid #ece5d8;display:flex;justify-content:center;gap:32px}
+  .trust-item{font-family:system-ui,sans-serif;font-size:.62rem;color:#8a7a64;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.08em}
+  .products{padding:48px 32px;background:#fff}
+  .products h2{text-align:center;font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:8px;color:#3a2e20}
+  .products .sub{text-align:center;font-family:system-ui,sans-serif;font-size:.72rem;color:#8a7a64;margin-bottom:24px}
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .prod-card{background:#faf7f2;border:1px solid #ece5d8;border-radius:4px;overflow:hidden}
+  .prod-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+  .prod-card:nth-child(1) .prod-img{background:linear-gradient(135deg,#f5efe4,#ede4d4)}
+  .prod-card:nth-child(2) .prod-img{background:linear-gradient(135deg,#f0e8f2,#e8ddf0)}
+  .prod-card:nth-child(3) .prod-img{background:linear-gradient(135deg,#e8f0f0,#dde8e8)}
+  .prod-info{padding:16px}
+  .prod-info h4{font-size:.88rem;font-weight:400;margin-bottom:4px}
+  .prod-info .price{font-family:system-ui,sans-serif;font-size:.78rem;color:#b8863a;font-weight:600}
+  .prod-info .desc{font-family:system-ui,sans-serif;font-size:.62rem;color:#8a7a64;margin-top:6px;line-height:1.5}
+  .story{padding:48px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;background:#faf7f2}
+  .story-visual{height:220px;background:linear-gradient(135deg,#ede4d4,#e0d4c0);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+  .story-text h3{font-size:1.5rem;font-style:italic;font-weight:400;margin-bottom:14px;color:#3a2e20}
+  .story-text p{font-family:system-ui,sans-serif;font-size:.78rem;color:#8a7a64;line-height:1.8}
+  .banner{margin:24px 32px 40px;padding:40px;text-align:center;background:#3a2e20;color:#faf7f2;border-radius:4px}
+  .banner h2{font-size:1.6rem;font-weight:400;font-style:italic;margin-bottom:8px}
+  .banner p{font-family:system-ui,sans-serif;font-size:.75rem;color:#c4b8a0;margin-bottom:18px}
+  .btn-bw{background:#b8863a;color:#fff;padding:12px 28px;font-family:system-ui,sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;display:inline-block}
+  .footer{padding:20px 32px;border-top:1px solid #ece5d8;display:flex;justify-content:space-between;background:#fff}
+  .footer span{font-family:system-ui,sans-serif;font-size:.58rem;color:#b8a88e;letter-spacing:.06em}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand">Luxe</div><div class="nav-links"><span>Shop</span><span>Story</span><span>Rituale</span><span>Journal</span></div><div class="nav-icons">🔍 👤 🛒</div></nav>
+  <section class="hero">
+    <div>
+      <div class="hero-sub">Premium Natural Skincare</div>
+      <h1>Schönheit, die von <span>innen</span> kommt.</h1>
+      <p>Luxuriöse Hautpflege aus natürlichen Inhaltsstoffen. Handgefertigt in kleinen Chargen in den Alpen.</p>
+      <div class="btn-lux">Kollektion entdecken</div>
+    </div>
+    <div class="hero-visual"><div class="circle">🧴</div></div>
+  </section>
+  <div class="trust-bar">
+    <div class="trust-item">🚚 Gratis ab €50</div>
+    <div class="trust-item">🌿 100% Natürlich</div>
+    <div class="trust-item">🐰 Tierversuchsfrei</div>
+    <div class="trust-item">↩️ 30 Tage Rückgabe</div>
+  </div>
+  <section class="products">
+    <h2>Unsere Bestseller</h2>
+    <p class="sub">Handverlesene Lieblinge unserer Kunden</p>
+    <div class="prod-grid">
+      <div class="prod-card"><div class="prod-img">🌹</div><div class="prod-info"><h4>Alpine Rose Serum</h4><div class="price">€89.00</div><div class="desc">Anti-Aging Serum mit alpiner Rosenessenz und Hyaluronsäure.</div></div></div>
+      <div class="prod-card"><div class="prod-img">✨</div><div class="prod-info"><h4>Golden Hour Oil</h4><div class="price">€72.00</div><div class="desc">Nährendes Gesichtsöl mit 24K Gold-Partikeln und Jojoba.</div></div></div>
+      <div class="prod-card"><div class="prod-img">💧</div><div class="prod-info"><h4>Glacier Mist Toner</h4><div class="price">€48.00</div><div class="desc">Erfrischender Toner mit Gletscherwasser und Edelweiss-Extrakt.</div></div></div>
+    </div>
+  </section>
+  <section class="story">
+    <div class="story-visual">🏔️</div>
+    <div class="story-text"><h3>Von den Alpen auf deine Haut.</h3><p>Seit 2019 verbinden wir traditionelles Kräuterwissen mit modernster Kosmetikforschung. Jedes Produkt wird in unserer Manufaktur am Fuße der Alpen von Hand gefertigt — in kleinen Chargen, mit größter Sorgfalt.</p></div>
+  </section>
+  <section class="banner"><h2>Dein Ritual beginnt hier.</h2><p>Kostenloser Versand ab €50 · 30 Tage Rückgabe · Tierversuchsfrei</p><div class="btn-bw">Jetzt shoppen</div></section>
+  <div class="footer"><span>© 2026 Luxe Skincare</span><span>Made in the Alps 🏔️</span></div>
+</body>
+</html>

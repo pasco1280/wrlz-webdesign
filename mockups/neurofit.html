@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#f8faf9;color:#1a2e1f;font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;background:#fff;border-bottom:1px solid #e8ede9}
+  .nav-brand{font-weight:800;font-size:1.1rem;color:#16a34a}
+  .nav-links{display:flex;gap:20px;font-size:.72rem;color:#6b7c6e}
+  .nav-cta{background:#16a34a;color:#fff;padding:8px 20px;border-radius:100px;font-size:.7rem;font-weight:700}
+  .hero{padding:60px 32px 40px;text-align:center;background:linear-gradient(180deg,#f0faf2,#f8faf9)}
+  .hero-badge{display:inline-block;padding:6px 16px;background:#e6f7eb;border-radius:100px;font-size:.65rem;color:#16a34a;margin-bottom:20px;font-weight:600}
+  .hero h1{font-size:2.8rem;font-weight:800;line-height:1.05;margin-bottom:16px;letter-spacing:-.03em;color:#0f2617}
+  .hero h1 span{color:#16a34a}
+  .hero p{color:#6b7c6e;font-size:.85rem;max-width:400px;margin:0 auto 24px;line-height:1.6}
+  .hero-btns{display:flex;gap:12px;justify-content:center}
+  .btn-g{background:#16a34a;color:#fff;padding:12px 28px;border-radius:100px;font-size:.8rem;font-weight:700}
+  .btn-o{border:1px solid #c8d9cc;color:#1a2e1f;padding:12px 28px;border-radius:100px;font-size:.8rem;background:#fff}
+  .hero-img{margin:32px auto 0;max-width:500px;height:200px;background:#fff;border-radius:16px;border:1px solid #e0ece3;box-shadow:0 20px 60px rgba(22,163,74,.08);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .app-mockup{display:flex;gap:12px;padding:20px;width:100%}
+  .app-sidebar{width:50px;background:#f0faf2;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px;align-items:center}
+  .app-sidebar .dot{width:24px;height:24px;border-radius:8px;background:#e6f7eb}
+  .app-sidebar .dot.active{background:#16a34a}
+  .app-main{flex:1;display:flex;flex-direction:column;gap:8px}
+  .app-topbar{height:24px;background:#f7faf8;border-radius:6px;display:flex;align-items:center;padding:0 10px;gap:6px}
+  .app-topbar span{height:8px;border-radius:4px;background:#e0ece3}
+  .app-chart{flex:1;background:#f0faf2;border-radius:10px;padding:12px;position:relative}
+  .bar-chart{display:flex;align-items:flex-end;gap:6px;height:80px}
+  .bar{width:16px;border-radius:4px 4px 0 0;background:#16a34a}
+  .bar:nth-child(2){background:#86efac}
+  .bar:nth-child(4){background:#86efac}
+  .bar:nth-child(6){background:#bbf7d0}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:40px 32px}
+  .metric{background:#fff;border:1px solid #e8ede9;border-radius:16px;padding:20px;text-align:center}
+  .metric h3{font-size:1.8rem;font-weight:800;color:#16a34a}
+  .metric p{font-size:.65rem;color:#6b7c6e;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .features{padding:40px 32px;background:#fff}
+  .features h2{font-size:1.6rem;font-weight:700;margin-bottom:24px;text-align:center;color:#0f2617}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .feat-card{background:#f8faf9;border:1px solid #e8ede9;border-radius:14px;padding:20px}
+  .feat-icon{width:36px;height:36px;border-radius:10px;background:#e6f7eb;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:10px}
+  .feat-card h4{font-size:.85rem;font-weight:600;margin-bottom:6px;color:#0f2617}
+  .feat-card p{font-size:.7rem;color:#6b7c6e;line-height:1.5}
+  .testimonial{padding:40px 32px;text-align:center;background:#f0faf2}
+  .testimonial blockquote{font-size:1.05rem;font-style:italic;max-width:460px;margin:0 auto 14px;line-height:1.6;color:#2d4a34}
+  .testimonial cite{font-size:.72rem;font-style:normal;color:#16a34a;font-weight:600}
+  .cta-section{margin:20px 32px 40px;background:#16a34a;border-radius:20px;padding:36px;text-align:center;color:#fff}
+  .cta-section h2{font-size:1.4rem;font-weight:700;margin-bottom:10px}
+  .cta-section p{font-size:.8rem;opacity:.8;margin-bottom:18px}
+  .btn-w{background:#fff;color:#16a34a;padding:12px 28px;border-radius:100px;font-size:.8rem;font-weight:700;display:inline-block}
+</style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-brand">🧠 NeuroFit</div><div class="nav-links"><span>Features</span><span>Pricing</span><span>Science</span></div><div class="nav-cta">Start Free</div></nav>
+  <section class="hero">
+    <div class="hero-badge">🧠 AI-Powered Wellness Platform</div>
+    <h1>Train your brain.<br><span>Optimize your life.</span></h1>
+    <p>KI-gestützte Mental-Fitness App. Personalisierte Routinen, Neuro-Tracking und wissenschaftlich fundierte Übungen.</p>
+    <div class="hero-btns"><div class="btn-g">Kostenlos starten</div><div class="btn-o">Demo ansehen</div></div>
+    <div class="hero-img">
+      <div class="app-mockup">
+        <div class="app-sidebar"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <div class="app-main">
+          <div class="app-topbar"><span style="width:60px"></span><span style="width:40px"></span><span style="width:80px"></span></div>
+          <div class="app-chart">
+            <div class="bar-chart">
+              <div class="bar" style="height:40%"></div><div class="bar" style="height:65%"></div><div class="bar" style="height:50%"></div>
+              <div class="bar" style="height:80%"></div><div class="bar" style="height:60%"></div><div class="bar" style="height:45%"></div>
+              <div class="bar" style="height:90%"></div><div class="bar" style="height:70%"></div><div class="bar" style="height:55%"></div>
+              <div class="bar" style="height:75%"></div><div class="bar" style="height:95%"></div><div class="bar" style="height:85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="metrics">
+    <div class="metric"><h3>94%</h3><p>Weniger Stress</p></div>
+    <div class="metric"><h3>2.4x</h3><p>Mehr Fokus</p></div>
+    <div class="metric"><h3>50K+</h3><p>Active Users</p></div>
+  </section>
+  <section class="features">
+    <h2>Warum NeuroFit?</h2>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-icon">🎯</div><h4>Adaptive Routinen</h4><p>KI passt sich deinem Tagesrhythmus an und optimiert deine Übungen in Echtzeit.</p></div>
+      <div class="feat-card"><div class="feat-icon">📊</div><h4>Neuro-Dashboard</h4><p>Visualisiere deinen Fortschritt mit detaillierten Stress- und Fokus-Metriken.</p></div>
+      <div class="feat-card"><div class="feat-icon">🧬</div><h4>Science-backed</h4><p>Basierend auf 200+ Studien aus Neurowissenschaft und Psychologie.</p></div>
+      <div class="feat-card"><div class="feat-icon">⚡</div><h4>5-Min Sessions</h4><p>Micro-Workouts für den Kopf. Effektiv, schnell, überall machbar.</p></div>
+    </div>
+  </section>
+  <section class="testimonial">
+    <blockquote>"NeuroFit hat meinen Morgen komplett verändert. Ich starte fokussierter und ruhiger in den Tag."</blockquote>
+    <cite>— Dr. Sarah M., Neurowissenschaftlerin ⭐⭐⭐⭐⭐</cite>
+  </section>
+  <section class="cta-section">
+    <h2>Bereit für mentale Peak-Performance?</h2>
+    <p>14 Tage kostenlos. Keine Kreditkarte nötig.</p>
+    <div class="btn-w">Jetzt starten →</div>
+  </section>
+</body>
+</html>
