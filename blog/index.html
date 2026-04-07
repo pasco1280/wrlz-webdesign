@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog – Webdesign-Wissen von WRLZ</title>
+  <meta name="description" content="Praxisnahes Webdesign-Wissen für Startups, D2C-Brands und ambitionierte Gründer. Kein Füllmaterial – nur Inhalte, die dir weiterhelfen.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webdesign.wrlz.ai/blog/">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog – Webdesign-Wissen von WRLZ">
+  <meta property="og:description" content="Praxisnahes Webdesign-Wissen für Startups und D2C-Brands. Kein Füllmaterial.">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Blog-specific styles -->
+  <style>
+    /* ---- Blog Hero ---- */
+    .blog-hero {
+      padding: 140px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blog-hero .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .blog-hero .label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .blog-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    .blog-hero h1 .text-accent {
+      color: var(--accent);
+    }
+
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    /* ---- Blog Grid ---- */
+    .blog-section {
+      padding: 80px 0 120px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- Blog Card ---- */
+    .blog-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, var(--accent-g) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .blog-card:hover {
+      border-color: rgba(255,107,44,0.3);
+      transform: translateY(-4px);
+    }
+
+    .blog-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-g);
+      border: 1px solid rgba(255,107,44,0.2);
+      border-radius: 4px;
+      padding: 3px 10px;
+      width: fit-content;
+    }
+
+    .blog-card h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .blog-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: auto;
+      transition: gap 0.2s ease;
+    }
+
+    .card-read-link:hover {
+      gap: 10px;
+    }
+
+    .blog-section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .blog-section-header h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .post-count {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ---- Simplified Footer ---- */
+    .blog-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+
+    .blog-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .blog-footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .blog-footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .blog-footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .blog-footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---- Reveal animation ---- */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- JSON-LD: WebPage + Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://webdesign.wrlz.ai/blog/",
+        "url": "https://webdesign.wrlz.ai/blog/",
+        "name": "Blog – Webdesign-Wissen von WRLZ",
+        "description": "Praxisnahes Webdesign-Wissen für Startups und D2C-Brands.",
+        "inLanguage": "de-DE",
+        "isPartOf": {
+          "@id": "https://webdesign.wrlz.ai/"
+        }
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://webdesign.wrlz.ai/blog/#blog",
+        "name": "WRLZ Webdesign Blog",
+        "description": "Praxisnahes Webdesign-Wissen ohne Füllmaterial.",
+        "url": "https://webdesign.wrlz.ai/blog/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "WRLZ Webdesign",
+          "url": "https://webdesign.wrlz.ai"
+        },
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Webdesign für Startups: Was du vor der ersten Agentur-Anfrage wissen solltest",
+            "url": "https://webdesign.wrlz.ai/blog/webdesign-fuer-startups/",
+            "datePublished": "2026-04-07",
+            "author": {
+              "@type": "Person",
+              "name": "Pascal Jäger"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../" class="nav-logo-link">
+        <img src="../assets/logo.svg" alt="WRLZ" class="nav-logo">
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../#philosophie">Philosophie</a></li>
+        <li><a href="../#portfolio">Portfolio</a></li>
+        <li><a href="../#services">Services</a></li>
+        <li><a href="../#ki-edge">KI-Edge</a></li>
+        <li><a href="." aria-current="page">Blog</a></li>
+        <li><a href="../#kontakt" class="nav-cta">Projekt starten</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ BLOG HERO ============ -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="label reveal-up">
+        <span class="dot"></span>
+        Blog
+      </div>
+      <h1 class="reveal-up">Webdesign-Wissen.<br><span class="text-accent">Kein Füllmaterial.</span></h1>
+      <p class="reveal-up">Konkrete Einblicke aus der Praxis. Was wirklich funktioniert, was nicht, und warum die meisten Websites ihrer Zielgruppe im Stich lassen.</p>
+    </div>
+  </section>
+
+  <!-- ============ BLOG GRID ============ -->
+  <main class="blog-section">
+    <div class="container">
+      <div class="blog-section-header reveal-up">
+        <h2>Alle Artikel</h2>
+        <span class="post-count">1 Artikel</span>
+      </div>
+
+      <div class="blog-grid">
+
+        <!-- Article Card 1 -->
+        <article class="blog-card reveal-up">
+          <span class="card-tag">Strategie</span>
+          <h2>Webdesign für Startups: Was du vor der ersten Agentur-Anfrage wissen solltest</h2>
+          <p>Die meisten Startups investieren zu früh in das falsche Design. Was eine Startup-Website wirklich leisten muss, wann der richtige Zeitpunkt ist und worauf du bei Agenturen achten solltest.</p>
+          <a href="webdesign-fuer-startups/" class="card-read-link">
+            Lesen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ SIMPLIFIED FOOTER ============ -->
+  <footer class="blog-footer">
+    <div class="container blog-footer-inner">
+      <p>&copy; 2026 WRLZ.AI. Alle Rechte vorbehalten.</p>
+      <ul class="blog-footer-links">
+        <li><a href="../">Startseite</a></li>
+        <li><a href="../#kontakt">Kontakt</a></li>
+        <li><a href="../impressum.html">Impressum</a></li>
+        <li><a href="../datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- GSAP for scroll animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // Nav scroll behavior
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav-scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-open');
+      toggle.classList.toggle('nav-toggle-active');
+    });
+
+    // Reveal animations
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal-up').forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        delay: i * 0.08,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

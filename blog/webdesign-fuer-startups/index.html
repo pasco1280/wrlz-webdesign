@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webdesign für Startups: Was du vor der ersten Agentur-Anfrage wissen solltest</title>
+  <meta name="description" content="Webdesign für Startups: Wann du investieren solltest, was es kostet, welche Fehler die meisten machen und die 5 Fragen, die du jeder Agentur stellen musst.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webdesign.wrlz.ai/blog/webdesign-fuer-startups/">
+  <link rel="icon" href="../../assets/favicon.png" type="image/png">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Webdesign für Startups: Was du vor der ersten Agentur-Anfrage wissen solltest">
+  <meta property="og:description" content="Wann du als Startup in Webdesign investieren solltest, was es realistische kostet und welche Fehler sich am teuersten rächen.">
+  <meta property="og:locale" content="de_DE">
+  <meta property="article:published_time" content="2026-04-07">
+  <meta property="article:author" content="Pascal Jäger">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- Article-specific styles -->
+  <style>
+    /* ---- Breadcrumb ---- */
+    .breadcrumb {
+      padding: 120px 0 0;
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .breadcrumb li a {
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .breadcrumb li a:hover {
+      color: var(--text);
+    }
+
+    .breadcrumb li.current {
+      color: var(--text);
+    }
+
+    .breadcrumb-sep {
+      color: var(--faint);
+      font-size: 0.75rem;
+    }
+
+    /* ---- Article Header ---- */
+    .article-header {
+      padding: 32px 0 48px;
+      border-bottom: 1px solid var(--border);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-g);
+      border: 1px solid rgba(255,107,44,0.2);
+      border-radius: 4px;
+      padding: 3px 10px;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    /* ---- Author Block ---- */
+    .author-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--neon) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .author-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .author-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .meta-divider {
+      color: var(--faint);
+    }
+
+    /* ---- Article Body ---- */
+    .article-wrap {
+      padding: 56px 0 96px;
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-body .lead {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: rgba(244,241,236,0.75);
+      margin-bottom: 48px;
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      margin: 56px 0 20px;
+    }
+
+    .article-body h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(244,241,236,0.82);
+      margin-bottom: 20px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      list-style: none;
+      margin-bottom: 24px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .article-body ul li,
+    .article-body ol li {
+      padding-left: 24px;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(244,241,236,0.82);
+    }
+
+    .article-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .article-body ol {
+      counter-reset: ol-counter;
+    }
+
+    .article-body ol li {
+      counter-increment: ol-counter;
+    }
+
+    .article-body ol li::before {
+      content: counter(ol-counter) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .article-body strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ---- Highlight box ---- */
+    .highlight-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--neon);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(244,241,236,0.75);
+    }
+
+    /* ---- Price Table ---- */
+    .price-table {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr 160px 1fr;
+      gap: 0;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row-head {
+      background: var(--bg3);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 160px 1fr;
+    }
+
+    .price-range {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .price-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .price-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .price-row, .price-row-head {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    /* ---- FAQ ---- */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--bg2);
+      transition: background 0.2s;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .faq-question:hover {
+      background: var(--bg3);
+    }
+
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, border-color 0.3s;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+      background: var(--bg2);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 20px;
+    }
+
+    .faq-answer p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ---- CTA Block ---- */
+    .article-cta {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border: 1px solid rgba(255,107,44,0.2);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+      margin: 64px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, var(--accent-g) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .article-cta h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .article-cta p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      position: relative;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .article-cta .btn-primary {
+      position: relative;
+    }
+
+    /* ---- Simplified Footer ---- */
+    .blog-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+
+    .blog-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .blog-footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .blog-footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .blog-footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .blog-footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---- Reading progress bar ---- */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ---- Reveal ---- */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  </style>
+
+  <!-- JSON-LD Schemas -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://webdesign.wrlz.ai/blog/webdesign-fuer-startups/#article",
+        "headline": "Webdesign für Startups: Was du vor der ersten Agentur-Anfrage wissen solltest",
+        "description": "Wann Startups in Webdesign investieren sollten, was es kostet, welche Fehler sich am teuersten rächen und die 5 Fragen, die du jeder Agentur stellen musst.",
+        "url": "https://webdesign.wrlz.ai/blog/webdesign-fuer-startups/",
+        "datePublished": "2026-04-07",
+        "dateModified": "2026-04-07",
+        "inLanguage": "de-DE",
+        "author": {
+          "@type": "Person",
+          "name": "Pascal Jäger",
+          "sameAs": "https://webdesign.wrlz.ai"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "WRLZ Webdesign",
+          "url": "https://webdesign.wrlz.ai"
+        },
+        "isPartOf": {
+          "@id": "https://webdesign.wrlz.ai/blog/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://webdesign.wrlz.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://webdesign.wrlz.ai/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Webdesign für Startups",
+            "item": "https://webdesign.wrlz.ai/blog/webdesign-fuer-startups/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was kostet Webdesign für Startups?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Je nach Umfang und Qualitaet: Template-basiert 500 bis 2000 EUR, individuelle Landingpage oder Website 3000 bis 8000 EUR, vollstaendiges Brand + Website-Paket ab 8000 EUR. Billige Loesungen klingen verlockend, fuehren aber oft zu teuren Nacharbeiten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wann sollte ein Startup eine professionelle Website bauen lassen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sobald du aktiv Kunden gewinnst oder Investoren ansprichst. Bis dahin genuegt eine einfache, klare Landingpage. Eine aufwendige Website vor dem ersten Umsatz ist meistens verschwendetes Budget."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Braucht ein Startup eine eigene Website oder reicht LinkedIn?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "LinkedIn ersetzt keine eigene Website. Du hast dort keine Kontrolle ueber Design, Algorithmus oder Verweildauer. Eine eigene Domain ist das Minimum professioneller Aussendarstellung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange dauert die Entwicklung einer Startup-Website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Eine fokussierte Landingpage ist in 1 bis 2 Wochen fertig. Eine vollstaendige Website mit mehreren Unterseiten dauert typischerweise 3 bis 6 Wochen, je nach Feedback-Zyklen und Contentlieferung."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Reading progress -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../../" class="nav-logo-link">
+        <img src="../../assets/logo.svg" alt="WRLZ" class="nav-logo">
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../#philosophie">Philosophie</a></li>
+        <li><a href="../../#portfolio">Portfolio</a></li>
+        <li><a href="../../#services">Services</a></li>
+        <li><a href="../../#ki-edge">KI-Edge</a></li>
+        <li><a href="../" aria-current="page">Blog</a></li>
+        <li><a href="../../#kontakt" class="nav-cta">Projekt starten</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ BREADCRUMB ============ -->
+  <div class="breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="../../">Startseite</a></li>
+        <li><span class="breadcrumb-sep">/</span></li>
+        <li><a href="../">Blog</a></li>
+        <li><span class="breadcrumb-sep">/</span></li>
+        <li class="current">Webdesign für Startups</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ ARTICLE HEADER ============ -->
+  <header class="article-header container">
+    <span class="article-category">Strategie</span>
+    <h1>Webdesign für Startups: Was du vor der ersten Agentur-Anfrage wissen solltest</h1>
+
+    <div class="author-block">
+      <div class="author-avatar" aria-hidden="true">P</div>
+      <div class="author-info">
+        <span class="author-name">Pascal Jäger</span>
+        <span class="author-meta">
+          WRLZ Webdesign
+          <span class="meta-divider">·</span>
+          April 2026
+          <span class="meta-divider">·</span>
+          8 Min. Lesezeit
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ ARTICLE BODY ============ -->
+  <main class="article-wrap">
+    <article class="article-body container">
+
+      <p class="lead">Die meisten Startups beauftragen eine Website zum falschen Zeitpunkt, mit dem falschen Briefing und bei der falschen Agentur. Das Ergebnis: eine Seite, die niemand besucht, niemanden konvertiert und nach 18 Monaten neu gebaut werden muss. Dieser Artikel hilft dir, diesen Fehler zu vermeiden.</p>
+
+      <!-- H2 1 -->
+      <h2>Der häufigste Fehler: Design vor Strategie</h2>
+
+      <p>In meiner Arbeit mit Startups sehe ich immer wieder dasselbe Muster: Ein Team hat gerade das Produkt fertig, der erste Pitch steht bevor, und plötzlich wird eine Website zur dringlichsten Aufgabe der Welt. Was folgt, ist ein hastiges Briefing, bei dem vor allem Ästhetik-Wünsche kommuniziert werden. "Wir wollen etwas Modernes, Cleanes, irgendwie wie Stripe, aber mit unserer Farbe."</p>
+
+      <p>Das Problem ist nicht, dass der Wunsch nach einem guten Design falsch wäre. Das Problem ist, dass Design ohne vorherige strategische Klarheit nichts bewirkt. Wer ist deine Zielgruppe wirklich? Was ist das einzige, was ein Besucher nach 10 Sekunden auf deiner Seite verstehen muss? Welche Aktion soll er danach ausführen?</p>
+
+      <p>Wenn du diese drei Fragen nicht klar beantworten kannst, wird jede Agentur dir etwas bauen, das schön aussieht und trotzdem nichts tut. Die Agentur ist dabei nicht das Problem. Sie hat bekommen, was du ihr gegeben hast.</p>
+
+      <div class="highlight-box">
+        <p>Strategie bedeutet in diesem Kontext nicht Monate an Workshops und Deliverables. Es bedeutet: Zielgruppe, Kernbotschaft und gewünschte Aktion sind definiert, bevor die erste Wireframe-Skizze entsteht. Das dauert manchmal nur einen einzigen klärenden Nachmittag.</p>
+      </div>
+
+      <p>Eine weitere Folge des Design-vor-Strategie-Fehlers ist Überbreite. Viele Startup-Websites versuchen, drei verschiedene Zielgruppen gleichzeitig anzusprechen: Investoren, Unternehmenskunden und Endkonsumenten. Das Ergebnis ist eine Seite, die für niemanden wirklich spricht. Eine fokussierte Botschaft für eine klar definierte Gruppe schlägt immer eine verwässerte Botschaft für alle.</p>
+
+      <!-- H2 2 -->
+      <h2>Was eine Startup-Website wirklich leisten muss</h2>
+
+      <p>Schönheit ist kein Geschäftsziel. Konversion schon. Eine Startup-Website hat in der Regel eine von zwei Aufgaben: entweder qualifizierte Leads zu generieren, oder Vertrauen aufzubauen, bevor jemand eine Kaufentscheidung trifft. Beides hat konkrete Design-Konsequenzen.</p>
+
+      <p>Für Lead-Generierung braucht eine Seite eine klare CTA-Hierarchie. Das heisst: ein primärer Call-to-Action, der sofort sichtbar ist und nicht mit fünf weiteren Buttons konkurriert. Ich habe Seiten gesehen, die sechs verschiedene Handlungsaufforderungen in der ersten Scroll-Einheit hatten. Keiner davon wurde häufig geklickt. Nachdem wir auf einen einzigen fokussierten CTA reduziert haben, stieg die Klickrate auf über das Dreifache.</p>
+
+      <p>Vertrauen entsteht schneller durch Abwesenheit von Risiko-Signalen als durch Anwesenheit von Vertrauens-Signalen. Konkret: Eine langsame Seite, schlechte Textformatierung, kein Impressum, keine erkennbare Person hinter dem Unternehmen. Das sind Warnsignale, die Besucher unbewusst registrieren und die dazu führen, dass sie abspringen, bevor sie überhaupt deinen Hauptinhalt gesehen haben.</p>
+
+      <ul>
+        <li><strong>Ladezeit unter 2,5 Sekunden</strong> auf dem mobilen Netz ist kein Nice-to-have, sondern Pflicht. Google misst und wertet das, deine Nutzer spüren es.</li>
+        <li><strong>Trust Signals</strong> wie echte Logos von Kunden oder Partnern, ein konkreter Name und Gesicht hinter dem Startup, und eine physische Adresse wirken stärker als jedes Design-Feature.</li>
+        <li><strong>Eine klare Antwort auf "Für wen ist das?"</strong> sollte innerhalb der ersten drei Sekunden erkennbar sein. Wenn ein Besucher raten muss, ist er weg.</li>
+      </ul>
+
+      <p>Bei einem E-Commerce-Startup, mit dem ich vor einigen Monaten gearbeitet habe, lag das einzige Problem nicht im Design, sondern darin, dass der "Jetzt kaufen"-Button auf der Produktseite unterhalb des Folds lag. Nach der Optimierung stieg die Add-to-Cart-Rate um 40 Prozent, ohne dass wir eine Zeile Design angefasst haben.</p>
+
+      <!-- H2 3 -->
+      <h2>Der richtige Zeitpunkt für eine "echte" Website</h2>
+
+      <p>Die ehrliche Antwort ist: später als die meisten Startups denken. Vor dem ersten Umsatz oder dem ersten klar definierten Investor-Meeting braucht es keine aufwendige Multi-Page-Website mit Custom Animationen. Was es braucht, ist eine schnelle, klare Landingpage, die das Problem, die Lösung und die nächste Aktion kommuniziert.</p>
+
+      <p>Eine gute MVP-Landingpage lässt sich in wenigen Tagen bauen, kostet wenig, und gibt dir vor allem eins: Daten. Du lernst, wie Besucher reagieren, welche Botschaften funktionieren, wo die Abbrüche passieren. Diese Daten sind Gold wert für das Briefing deiner "echten" Website.</p>
+
+      <p>Den richtigen Zeitpunkt für ein vollständiges Website-Projekt erkenne ich an drei Signalen:</p>
+
+      <ol>
+        <li>Du hast die ersten Kunden gewonnen und verstehst, wer sie wirklich sind und warum sie gekauft haben.</li>
+        <li>Du investierst aktiv in Akquise und deine Website ist der erste Berührungspunkt, der Vertrauen herstellen oder zerstören kann.</li>
+        <li>Du bist dabei, ernsthaft Investoren oder grössere Unternehmenskunden anzusprechen, für die eine unprofessionelle Aussendarstellung ein K.O.-Kriterium ist.</li>
+      </ol>
+
+      <p>Wenn keines dieser drei Signale zutrifft, spare das Budget und investiere es in Produktentwicklung oder erste Marketing-Experimente. Die Website kann warten. Der Marktzugang nicht.</p>
+
+      <div class="highlight-box">
+        <p>Timeline-Einschätzung: Eine fokussierte Landingpage ist in 7 bis 14 Tagen produktionsfertig. Eine vollständige Website mit 4 bis 8 Unterseiten, Animationen und integriertem CMS dauert typischerweise 4 bis 6 Wochen bei einem geordneten Prozess.
+        Was den Zeitplan am stärksten verzögert: fehlende Inhalte und langsame Feedback-Zyklen auf Kundenseite.</p>
+      </div>
+
+      <!-- H2 4 -->
+      <h2>Preise: Was Webdesign für Startups kostet (und warum günstig teuer wird)</h2>
+
+      <p>Keine Frage beschäftigt Gründer so sehr wie die nach dem Preis. Und die ehrliche Antwort ist: es kommt darauf an. Aber "es kommt darauf an" hilft dir nicht weiter, also hier sind realistische Orientierungswerte für den DACH-Markt.</p>
+
+      <div class="price-table">
+        <div class="price-row-head">
+          <span>Budget</span>
+          <span>Kategorie</span>
+          <span>Was du bekommst</span>
+        </div>
+        <div class="price-row">
+          <span class="price-range">500 bis 2.000 EUR</span>
+          <span class="price-label">Template-basiert</span>
+          <span class="price-desc">WordPress oder Webflow auf Basis eines gekauften Templates. Angepasste Farben, Texte, Bilder. Funktioniert für MVPs, wirkt aber selten einzigartig.</span>
+        </div>
+        <div class="price-row">
+          <span class="price-range">3.000 bis 8.000 EUR</span>
+          <span class="price-label">Custom Design</span>
+          <span class="price-desc">Individuell gestaltete Website oder Landingpage, entwickelt nach deinem Briefing. Echte Design-Entscheidungen, keine Vorlage. Für Startups mit erstem Umsatz sinnvoll.</span>
+        </div>
+        <div class="price-row">
+          <span class="price-range">8.000 EUR aufwärts</span>
+          <span class="price-label">Full Brand + Website</span>
+          <span class="price-desc">Visual Identity, Messaging, Design-System und Website aus einem Guss. Für Series-A-Startups, D2C-Brands oder Unternehmen mit ambitionierten Wachstumszielen.</span>
+        </div>
+      </div>
+
+      <p>Die echte Gefahr bei günstigen Lösungen liegt nicht im ersten Preis, sondern in den Folgekosten. Eine Website für 800 Euro, die nach einem Jahr nicht mehr zu deiner Brand passt, jede Änderung manuelle Stunden kostet und keine SEO-Grundlage hat, kostet dich nach 18 Monaten das Dreifache an Nacharbeit. Dazu kommt der schwerer messbare Schaden: verlorenes Vertrauen bei Kunden und Investoren, die deine Seite besuchen und unbewusst auf ein billiges Signal stossen.</p>
+
+      <p>Ich habe Startups erlebt, die 600 Euro in eine Website investiert haben und nach sechs Monaten 4.000 Euro für einen Neuaufbau ausgeben mussten, weil sich das Produkt entwickelt hatte und die alte Seite nicht flexibel genug war. Das ist kein Einzelfall.</p>
+
+      <!-- H2 5 -->
+      <h2>5 Fragen, die du jeder Agentur stellen solltest</h2>
+
+      <p>Bevor du einen Vertrag unterschreibst, stelle diese Fragen. Die Qualität der Antworten sagt mehr über eine Agentur aus als jedes Portfolio.</p>
+
+      <ol>
+        <li>
+          <strong>"Zeig mir drei Websites, die ihr in den letzten 12 Monaten gebaut habt, und erkläre mir, was die jeweilige Conversion-Rate oder Zielerreichung war."</strong>
+          Agenturen, die nur über Ästhetik sprechen können, werden dir eine schöne Seite bauen, die keine Ergebnisse liefert. Du willst Ergebnisse.
+        </li>
+        <li>
+          <strong>"Wer bei euch macht konkret mein Projekt?"</strong>
+          Viele Agenturen pitchen mit Seniors und liefern mit Juniors oder Freelancern. Frag nach der konkreten Person, ihrem Portfolio und ob du direkt mit ihr kommunizieren wirst.
+        </li>
+        <li>
+          <strong>"Was passiert, wenn wir nicht einer Meinung sind über eine Design-Entscheidung?"</strong>
+          Du willst einen klaren Prozess für Feedback-Runden und eine Kultur, die ergebnisorientiert und nicht ego-orientiert arbeitet. Vage Antworten hier sind ein Warnsignal.
+        </li>
+        <li>
+          <strong>"Wie stellt ihr sicher, dass meine Seite nach Launch ohne euch gepflegt werden kann?"</strong>
+          Lock-in durch proprietäre Systeme oder fehlende Dokumentation ist ein klassisches Geschäftsmodell bei günstigen Anbietern. Du willst Eigenständigkeit nach dem Launch.
+        </li>
+        <li>
+          <strong>"Was würdet ihr anders machen, wenn ihr das Projekt mit eurem eigenen Geld bauen würdet?"</strong>
+          Diese Frage trennt Berater von Auftragsnehmern. Eine Agentur mit Haltung wird dir hier konkrete Meinungen liefern, keine diplomatischen Ausweichmanöver.
+        </li>
+      </ol>
+
+      <!-- H2 FAQ -->
+      <h2>Häufige Fragen</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was kostet Webdesign für Startups?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Je nach Umfang und Qualität: Template-basiert liegt man bei 500 bis 2.000 EUR, ein individuelles Custom-Design zwischen 3.000 und 8.000 EUR, ein vollständiges Brand- und Website-Paket ab 8.000 EUR aufwärts. Die Zahlen klingen nach viel, bis du siehst, was eine schlechte Website an Konversionen und Vertrauen kostet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wann sollte ein Startup eine professionelle Website bauen lassen?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sobald du aktiv Kunden akquirierst oder Investoren ansprichst. Bis dahin reicht eine schnelle, klare Landingpage vollkommen aus. Eine aufwendige Website vor dem ersten Proof of Market ist meistens vorschnell investiertes Budget.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Braucht ein Startup eine eigene Website oder reicht LinkedIn?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>LinkedIn ersetzt keine eigene Website. Du hast dort keine Kontrolle über Design, Algorithmus, Verweildauer oder Conversion-Pfad. Eine eigene Domain ist das absolute Minimum professioneller Aussendarstellung, und sie kostet wenig.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie lange dauert die Entwicklung einer Startup-Website?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Eine fokussierte Landingpage ist in 7 bis 14 Tagen produktionsfertig. Eine vollständige Website mit mehreren Seiten und Animationen braucht typischerweise 4 bis 6 Wochen. Was den Zeitplan am häufigsten verzögert: fehlende Inhalte auf Kundenseite und zu viele Feedback-Schleifen mit zu vielen internen Stakeholdern.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Block -->
+      <div class="article-cta">
+        <h3>Bereit für eine Website, die Ergebnisse liefert?</h3>
+        <p>30 Minuten, kein Verkaufsgespräch. Wir schauen gemeinsam, was du wirklich brauchst, und ob wir die Richtigen dafür sind.</p>
+        <a href="https://calendly.com/pasco1280/30min" target="_blank" rel="noopener" class="btn-primary">
+          <span>Kostenloses Erstgespräch buchen</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ============ SIMPLIFIED FOOTER ============ -->
+  <footer class="blog-footer">
+    <div class="container blog-footer-inner">
+      <p>&copy; 2026 WRLZ.AI. Alle Rechte vorbehalten.</p>
+      <ul class="blog-footer-links">
+        <li><a href="../../">Startseite</a></li>
+        <li><a href="../">Blog</a></li>
+        <li><a href="../../#kontakt">Kontakt</a></li>
+        <li><a href="../../impressum.html">Impressum</a></li>
+        <li><a href="../../datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    });
+
+    // Nav scroll behavior
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav-scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-open');
+      toggle.classList.toggle('nav-toggle-active');
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Reveal animations
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal-up').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1, y: 0, duration: 0.65, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // Animate article header on load
+    gsap.fromTo('.article-header', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.1 });
+    gsap.fromTo('.breadcrumb', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.05 });
+  </script>
+
+</body>
+</html>
