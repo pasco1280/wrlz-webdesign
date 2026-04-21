@@ -11,7 +11,7 @@
   --bg2:       #0E0E12;
   --bg3:       #131318;
   --text:      #F4F1EC;
-  --muted:     rgba(244,241,236,0.45);
+  --muted:     rgba(244,241,236,0.65);
   --faint:     rgba(244,241,236,0.12);
   --border:    rgba(244,241,236,0.07);
   --accent:    #FF6B2C;
@@ -386,6 +386,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   position: relative;
   transition: color 0.2s;
+  padding: 8px 4px;
 }
 
 .nav-links a::after {
@@ -627,6 +628,11 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(4px);
 }
 
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .btn-ghost {
   display: inline-flex;
   align-items: center;
@@ -647,6 +653,13 @@ h1, h2, h3, h4, h5, h6 {
   border-color: rgba(244, 241, 236, 0.25);
   background: var(--glass);
   transform: translateY(-2px);
+}
+
+.btn-ghost:focus-visible,
+.nav-cta:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .hero-scroll-hint {

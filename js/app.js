@@ -666,7 +666,7 @@
 
     function showComplete() {
       addBubble(
-        `<span class="bot-name">WRLZ:</span> Perfekt, ${formData.name}! Ich hab alles. Du bekommst gleich eine Bestätigung per Mail. Buche dir auch gern direkt einen kurzen Call mit mir.`
+        `<span class="bot-name">WRLZ:</span> Perfekt, ${formData.name}! Ich hab alles. Buche dir direkt einen kurzen Call oder schick die Anfrage per Mail raus.`
       );
 
       // Send via EmailJS if configured
